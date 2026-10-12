@@ -1,0 +1,104 @@
+/*
+
+filename: apply-layout.css
+
+author: Alagarsamy Chandrasekar Shashanth Kumar
+
+created: 7 September 2026 (07/09/2026)
+
+last modified: 11 September 2026 (11/09/2026)
+
+description: links to apply.html
+
+*/
+
+/* 
+
+_______________________________________________________________________________________________
+
+BASELINE LAYOUT CSS
+-----------------------------------------------------------------------------------------------
+Below are the basic initial CSS written in the midst of the development of the baseline HTML of
+the apply page, so as to keep the elements relatively clean, spaced out, and organised enough
+to be readable while coding the HTML form components.
+_______________________________________________________________________________________________
+
+*/
+
+/* equal spacing between fields */
+.personal-details, .address, .contact-details {
+    margin: 15px;
+}
+
+/* equal spacing between fieldsets */
+.personal-details-main-fieldset, .address-main-fieldset, .contact-details-main-fieldset {
+    margin-bottom: 15px;
+}
+
+/* spacing */
+.state-subgroup {
+    margin-left: 15px;
+}
+
+/* changes width of postcode field to match expected user input */
+#postcode {
+    display: inline-block;
+    width: 4em;
+}
+
+/* stacks skills checkboxes horizontally with even spacing */
+.skills-subgroup {
+    display: inline-block;
+    margin: 5px;
+}
+
+/* stacks end-of-form buttons (i.e. submit, reset buttons) horizontally with even spacing */
+.end-of-form-buttons {
+    display: inline-block;
+    margin: 5px;
+    margin-top: 2em;
+}
+
+/*
+_______________________________________________________________________________________________
+
+CORE LAYOUT CSS
+-----------------------------------------------------------------------------------------------
+From here on out, CSS written here below are all code written after the basic HTML development
+phase for the page had ended, the following contents now dictating core layout rules.
+
+_______________________________________________________________________________________________
+
+*/
+
+/* main page background colour */
+body { background-color: #f1f5f9;}
+
+form {
+    max-width: 800px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.end-of-form-buttons
+{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* spacing */
+.personal-details-main-fieldset {
+    margin-top: 25px;
+}
+
+/* spacing */
+.other-skills-subgroup {
+    margin-top: 25px;
+}
+
+/* repositioning of textarea label */
+.other-skills-subgroup label {
+    display: block;
+    margin-bottom: 8px;
+}

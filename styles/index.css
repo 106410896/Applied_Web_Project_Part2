@@ -1,0 +1,280 @@
+ /*
+
+filename: index.css
+
+author: Manas Alwani and Kshitij Shetty
+
+created: 7 September 2026 
+
+last modified: 9 September 2026 
+
+
+/* author: Manas Alwani */
+body {
+  
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fa;
+    color: #222;
+    line-height: 1.6;
+}
+
+.brand {
+    text-align: left;
+    padding: 30px 20px;
+
+    background: linear-gradient(to bottom right, #003366, #005599);
+    
+    color: white;
+    position: static;          
+}
+
+.brand img {
+    margin-bottom: 300px;
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 10px;
+
+    transform: scale(3);
+    transform-origin: left center;
+    margin-bottom: 20px;
+}
+
+.brand h1 {
+    text-align: center;
+    margin: 10px 0;
+    font-size: 5rem;         
+}
+
+.brand p {
+    font-size: 2rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #003366;
+    border-left: 5px solid #005599;
+    padding-left: 10px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+    background: white;
+}
+
+caption {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: center;
+}
+
+th {
+    background-color: #003366;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f0f4f8;
+}
+/* Company Intro Section */
+.company-intro {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 40px;
+    margin-top: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+tr:hover {
+    background-color: #e6eef7;
+}
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* author: Kshitij Shetty */
+.company-intro {
+    background-color: #161b22;
+    border: 1px solid #30363d;
+    border-radius: 12px;
+    padding: 40px;
+    margin-top: 40px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.company-intro h2 {
+    color: #58a6ff;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.intro-lead {
+    font-size: 1.2rem;
+    color: #58a6ff;;
+    text-align: center;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+/* Trust Boxes (Info Boxes) */
+.trust-box {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.box {
+    flex: 1 1 300px;
+    background-color: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.box:hover {
+    border-color: #58a6ff;
+    transform: translateY(-5px);
+}
+
+.box h3 {
+    color: #58a6ff;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.box p {
+    color: #8b949e;
+    font-size: 0.95rem;
+} 
+  /* WHY JOIN US -By Kshitij Shetty */
+.why-join-us {
+
+    background-color: #ffffff; 
+    background-color: #ffffff; /* white bg */
+     border-radius: 12px;
+    padding: 50px 40px;
+    text-align: center;
+    margin-top: 60px;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); 
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* shadow */
+}
+
+/* Heading */
+.why-join-us h2 {
+    color: #000000;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Main Paragraph -Blk */
+.why-join-us .bold-text {
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 500;
+    line-height: 1.8;
+    max-width: 850px;
+    margin: 0 auto 40px auto;
+}
+
+/* Highlighted Words ) */
+
+.why-join-us .bold-text strong {
+    color: #1f6feb; 
+    font-weight: 700;
+}
+
+/* Power-box bg color*/
+.power-box {
+    background-color: #f8f9fa; 
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+/* Power-boxText - */
+.power-box {
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+/* power box text */
+.power-box p strong {
+    color: #1f6feb;
+    font-weight: 700;
+}
+
+/* ---------- Buttons ---------- */
+
+/* Base button styles */
+.power-box .button {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 12px 25px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+}
+
+/* "View Open Roles" */
+.power-box .button:first-of-type {
+    color: #ffffff;
+    background-color: #1f6feb;
+    border: none;
+}
+
+.power-box .button:first-of-type:hover {
+    background-color: #388bfd;
+}
+
+/* "Apply" */
+
+.power-box .button:last-of-type {
+    color: #ffffff;
+    background-color: #000000;
+    border: none;
+}
+
+.power-box .button:last-of-type:hover {
+    background-color: #333333;
+}
+ 

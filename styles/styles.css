@@ -1,0 +1,162 @@
+/*
+
+filename: styles.css
+
+author: Alagarsamy Chandrasekar Shashanth Kumar
+
+created: 7 September 2026 (07/09/2026)
+
+last modified: 11 September 2026 (11/09/2026)
+
+description: links to all pages
+
+*/
+
+/*
+
+_______________________________________________________________________________________________
+
+GLOBAL STYLESHEET
+-----------------------------------------------------------------------------------------------
+
+This stylesheet is applied to every page. It contains the elements of the web page that stay
+consistent across all pages (i.e. menu navigation bars, footers, etc). If any work is done
+to such global elements, please ensure to do it and keep it here for ease of coding and
+an organised workspace.
+
+_______________________________________________________________________________________________
+
+*/
+
+body
+{font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #003366;
+    color: white;
+    margin-top: 40px;
+}
+
+footer a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    max-width: 100px;
+}
+
+/* ensures link clickable space covers entire logo area */
+.logo a {
+    display: block;
+    width: 100%;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+    display: block;
+    
+    transform: scale(3); /* scales image by 25% without tampering menu bar size */
+    transform-origin: left center; /* keeps locked left to avoid tampering with padding */
+}
+
+/* strips away underline and hyperlink blue color from nav-links */
+.nav-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    display: block; /* link fills entire clickable space of individual nav-link pill */
+    padding: 8px 0;
+}
+
+/* stacks menu navigation links horizontally and removes visibility of bullet points */
+.nav-links {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-inline: 5px; /* spaces out list items of navigation link classes, to ensure links themselves are spaced out evenly */
+    width: 100px; /* sets horizontal length of each nav-link's pill-style border equally */
+    text-align: center;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+/* menu bar CSS rules live here */
+header {
+
+    background-color: #7190d7; /* background colour of menu bar */
+
+    /* to fix menu bar on top of viewport, and ensure it follows when user scroll down or up page */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.50);
+
+    /* margin rules for top, and the left and right of this element only, 
+    in order to bypass default browser margin rule of 8px for just this element,
+     without hindering any other element. */
+    margin-top: -8px;
+    margin-inline: -8px;
+
+    border-radius: 0 0 24px 24px; /* curved edges at bottom */
+}
+
+/* stacks navbar contents horizontally and spaces them out appropriately */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    position: sticky;
+}
+
+/* creates black 'master-pill' container box for navigation links for the navbar */
+.navbar ul {
+    background-color: #0206176e;
+    padding: 6px 12px;
+    border-radius: 50px;
+    display: flex;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05); /* subtle border line that encapsulates master-pill to give more depth */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25); /* subtle shadow for more depth */
+}
+
+/* wraps non-cta-button nav-links in a grey pill when cursur hovers over it */
+.nav-links li:hover:not(:has(.cta-btn)) {
+    background-color: #374151;
+}
+
+/* highlights the current page user is on */
+.nav-links li:has(.current-page:not(.cta-btn)) {
+    background-color: #1e293b;
+    border: 1px solid #475569;
+}
+
+/* gives CTA Button (Apply button) its unique purple background color to call user to action */
+.nav-links li:has(.cta-btn) {
+    background-color: #701a75;
+}
+
+/* turns CTA button (Apply button) noticably lighter when cursor hovers over it, prompting user to click */
+.nav-links li:has(.cta-btn:hover) {
+    background-color: rgb(153, 40, 145);
+}
+
+/* highlights when user is currently on the 'Apply' page using extra border styling, as 'Apply' is a CTA button */
+.nav-links li:has(.cta-btn.current-page) {
+    background-color: rgb(65, 3, 65);
+    border: 1px solid rgb(210, 80, 210);
+}
