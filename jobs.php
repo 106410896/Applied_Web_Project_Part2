@@ -22,25 +22,8 @@
 </head>
 
 <body>
-  <header>
 
-    <!-- Font size, color and style for paragraphs within the aside section -->
-    <nav class="navbar">
-      <div class="logo">
-        <a 
-        href="index.html"><img src="images/logo-main.png" alt="Cybershield Logo">
-        </a>
-      </div>
-
-      <!-- Navigation bar -->
-      <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="jobs.html" class="current-page">Jobs</a></li>
-        <li><a href="apply.html" class="cta-btn">Apply</a></li> 
-      </ul>
-    </nav>
-    
-  </header>
+<?php include 'nav.inc'; ?>
 
   <p style="margin-block: 60px;"></p>
   <h1 style="text-align: center; color: rgb(18, 18, 91);">Open Positions</h1>
