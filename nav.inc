@@ -9,9 +9,9 @@
 
       <!-- Navigation bar -->
       <ul class="nav-links">
-        <li><a href="about.html">About</a></li>
-        <li><a href="jobs.html" class="current-page">Jobs</a></li>
-        <li><a href="apply.html" class="cta-btn">Apply</a></li> 
+        <li><a href="about.php">About</a></li>
+        <li><a href="jobs.php" class="current-page">Jobs</a></li>
+        <li><a href="apply.php" class="cta-btn">Apply</a></li> 
       </ul>
     </nav>
     

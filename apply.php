@@ -27,27 +27,7 @@
     <body>
 
       <!-- All global header elements live under 'header' tag -->
-      <header>
-
-        <!-- Main Menu/Navigation bar element -->
-        <nav class="navbar">
-
-         <!-- logo element (links to index page upon clicking)-->
-         <div class="logo">
-            <a href="index.html">
-               <img src="images/logo-main.png" alt="Cybershield Logo">
-            </a>
-         </div>
-
-         <!-- navigation links found in menu navbar -->
-         <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="apply.html" class="cta-btn current-page">Apply</a></li>
-         </ul>
-
-        </nav>
-      </header>
+      <?php include 'nav.inc'; ?>
 
       <!-- 'main' is a semantic tag that tells the browser where all the page-specific unique content lives. -->
       <main>
@@ -225,15 +205,6 @@
 
       </main>
 
-      <footer>
-         <p> <a href="https://106410896.github.io/Group_Name_Pending_Project/">Live Link - click here</a> </p>
-         <p> <a href="https://isaacmalual.atlassian.net/jira/software/projects/TECH/boards/34/backlog?atlOrigin=eyJpIjoiNTU5MTBlMGQzZTRiNDg4Yzk2YjMyODQyYzEyYmY0NWEiLCJwIjoiaiJ9">Jira link - https://www.jira.com</a> </p>
-        <p> <a href="https://github.com/106410896/Group_Name_Pending_Project.git">GitHub link - https://github.com</a> </p>
-        <p>
-            <a href="mailto:info@cybershield.com">info@cybershield.com</a>
-        </p>
-        <p>&copy; 2026 CyberShield Website</p>
-      </footer>
 
     </body>
 </html>

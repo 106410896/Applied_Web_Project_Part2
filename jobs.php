@@ -23,7 +23,7 @@
 
 <body>
 
-<?php include 'nav.inc'; ?>
+<?php include 'nav.inc';?>
 
   <p style="margin-block: 60px;"></p>
   <h1 style="text-align: center; color: rgb(18, 18, 91);">Open Positions</h1>
@@ -102,7 +102,7 @@
         <p style="margin-block: 40px; line-height: 150px;"></p>
 
         <!-- Apply button -->
-        <a href="apply.html" class="button">Apply</a>
+        <a href="apply.php" class="button">Apply</a>
       </div>
 
         </section>
@@ -163,7 +163,7 @@
         <p style="margin-block: 40px; line-height: 150px;"></p>
 
         <!-- Apply button -->
-        <a href="apply.html" class="button">Apply</a>
+        <a href="apply.php" class="button">Apply</a>
       </div>
 
         </section>
@@ -226,21 +226,13 @@
         <p style="margin-block: 40px; line-height: 150px;"></p>
 
         <!-- Apply button -->
-        <a href="apply.html" class="button">Apply</a>
+        <a href="apply.php" class="button">Apply</a>
       </div>
 
         </section>
 
     <!-- Footer section -->
-    <footer>
-      <p> <a href="https://106410896.github.io/Group_Name_Pending_Project/">Live Link - click here</a> </p>
-      <p> <a href="https://isaacmalual.atlassian.net/jira/software/projects/TECH/boards/34/backlog?atlOrigin=eyJpIjoiNTU5MTBlMGQzZTRiNDg4Yzk2YjMyODQyYzEyYmY0NWEiLCJwIjoiaiJ9">Jira link - https://www.jira.com</a> </p>
-        <p> <a href="https://github.com/106410896/Group_Name_Pending_Project.git">GitHub link - https://github.com</a> </p>
-        <p>
-          <a href="mailto:info@cybershield.com">info@cybershield.com</a>
-        </p>
-        <p>&copy; 2026 CyberShield Website</p>
-    </footer>
+    
 
     </div>
 </body>

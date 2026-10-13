@@ -15,27 +15,7 @@
 <body>
 
     <!-- All global header elements live under 'header' tag -->
-      <header>
-
-        <!-- Main Menu/Navigation bar element -->
-        <nav class="navbar">
-
-         <!-- logo element (links to index page upon clicking)-->
-         <div class="logo">
-            <a href="index.html">
-               <img src="images/logo-main.png" alt="Cybershield Logo">
-            </a>
-         </div>
-
-         <!-- navigation links found in menu navbar -->
-         <ul class="nav-links">
-            <li><a href="about.html">About</a></li>
-            <li><a href="jobs.html">Jobs</a></li>
-            <li><a href="apply.html" class="cta-btn">Apply</a></li>
-         </ul>
-
-        </nav>
-      </header>
+    <?php include 'nav.inc'; ?>
 
 <!-- edited by Shashanth: Hey Manas, hey Kshitij. I just fixed the code here real quick to actually get the menu bar I designed into it, so that the webpage is more consistent. Any queries about this, just reach out to me. Thanks. -->
     <main>
@@ -99,8 +79,8 @@
         <p>
             Ready to join the front lines of digital defense? <strong>Explore our current openings, or apply today to become part of the CyberShield family.</strong>
         </p>
-        <a href="jobs.html" class="button">View Open Roles</a>
-        <a href="apply.html" class="button">Apply</a>
+        <a href="jobs.php" class="button">View Open Roles</a>
+        <a href="apply.php" class="button">Apply</a>
     </div>
 </section>
            
@@ -157,16 +137,6 @@
     </main>
 
     <!-- Footer -->
-    <footer>
-        <p> <a href="https://106410896.github.io/Group_Name_Pending_Project/">Live Link - click here</a> </p>
-        <p> <a href="https://isaacmalual.atlassian.net/jira/software/projects/TECH/boards/34/backlog?atlOrigin=eyJpIjoiNTU5MTBlMGQzZTRiNDg4Yzk2YjMyODQyYzEyYmY0NWEiLCJwIjoiaiJ9">Jira link - https://www.jira.com</a> </p>
-        <p> <a href="https://github.com/106410896/Group_Name_Pending_Project.git">GitHub link - https://github.com</a> </p>
-        <p>
-         <a href="mailto:info@cybershield.com"> Email us at:info@cybershield.com</a>
-        
-        </p>
-        <p>&copy; 2026 CyberShield Website</p>
-    </footer>
 
 </body>
 </html>
