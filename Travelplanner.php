@@ -47,8 +47,9 @@ $destinations = getdestinations( $conn,
 
 <body>
 ```
-<?php require_once 'nav.inc'; ?>  loads nav file 
+<?php require_once 'nav.inc'; ?> // loads nav file 
 
+// Main content of the Page 
 <main class="travel-container">
 
     <section class="travel-hero">
@@ -60,7 +61,9 @@ $destinations = getdestinations( $conn,
         </p>
  </section>
 
-    <section class="search-section">  // New section created for searching destinations 
+
+// New section created for searching destinations 
+    <section class="search-section">  
         <form method="GET" action="Travelplanner.php">
 
             <label for="search">Search destinations</label>
@@ -72,7 +75,40 @@ $destinations = getdestinations( $conn,
                 placeholder="Enter a destination or country"
                 value="<?= escapeHTML($search) ?>"
             >
-            
+
+// Destination category dropdown box created with all the categories available in database
+            <label for="category">Destination category</label> 
+            <select id="category" name="category">
+                <option value="">All Categories</option>
+                <?php foreach ($allowedCategories as $item): ?>
+                    <option value="<?= escapeHTML($item) ?>" <?= $item === $category ? 'selected' : '' ?>>
+                        <?= escapeHTML($item) ?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
+      
+<button type="submit">Find Destinations</button>
+
+            <a href="Travelplanner.php">Clear Filters</a>
+
+        </form>
+    </section>
 
 
-            
+<section class="no destinations-section">
+        <h2>Explore Destinations</h2>
+
+        <p>
+            <?= count($destinations) ?>
+            destination(s) found.
+        </p>
+
+        <div class="destination-grid">
+
+            <?php if (empty($destinations)): ?>
+
+                <p class="no-results">
+                    No destinations found.
+                    Try another search or category.
+                </p>
+    
