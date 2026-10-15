@@ -32,3 +32,47 @@ $destinations = getdestinations( $conn,
     );
 }
 ?>  // Function escape html created tht converts special characters into safe html representations
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Personalised Travel Planner</title>
+
+    <link rel="stylesheet" href="styles/TravelPlanner.css">
+</head>
+
+<body>
+```
+<?php require_once 'nav.inc'; ?>  loads nav file 
+
+<main class="travel-container">
+
+    <section class="travel-hero">
+        <h1>Discover Your Next Destination</h1>
+
+        <p>
+            Explore destinations, compare daily costs,
+            and find the best time to travel.  
+        </p>
+ </section>
+
+    <section class="search-section">  // New section created for searching destinations 
+        <form method="GET" action="Travelplanner.php">
+
+            <label for="search">Search destinations</label>
+
+            <input
+                type="search"
+                id="search"
+                name="search"
+                placeholder="Enter a destination or country"
+                value="<?= escapeHTML($search) ?>"
+            >
+            
+
+
+            
