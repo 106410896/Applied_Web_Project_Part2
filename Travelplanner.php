@@ -3,8 +3,8 @@ require_once 'settings.php'; //connect to settings php and database
 
 require_once 'Travelplanner_functions.inc';  //load the funcitons used by Travel planner
 
-$search = trim($_GET['search'] ?? '');
-$category = trim($_GET['category'] ?? '');  // Get Search and Category values from the URL
+$search = (isset($_GET['search']) && is_string($_GET['search'])) ? trim($_GET['search']) : '';
+$category = (isset($_GET['category']) && is_string($_GET['category'])) ? trim($_GET['category']) : '';  // Get Search and Category values from the URL
 
 $allowedCategories = [   // Categories or options available in database
     'Beach',
@@ -17,13 +17,14 @@ if (!in_array($category, $allowedCategories, true)) {      // Checking that sele
     $category = '';
 }
 
-$search = substr($search, 0, 10000); // Limit the search input
+$search = mb_substr($search, 0, 100); // Limit the search input
 
 $destinations = getdestinations( $conn,
     $search,
     $category  );  // Retrieve matching destinations from MySQL
 
-    function escapeHTML($value)
+// Function escape html created tht converts special characters into safe html representations
+function escapeHTML($value)
 {
     return htmlspecialchars(
         (string) $value,
@@ -31,7 +32,7 @@ $destinations = getdestinations( $conn,
         'UTF-8'
     );
 }
-?>  // Function escape html created tht converts special characters into safe html representations
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,10 +47,10 @@ $destinations = getdestinations( $conn,
 </head>
 
 <body>
-```
-<?php require_once 'nav.inc'; ?> // loads nav file 
 
-// Main content of the Page 
+<?php require_once 'nav.inc'; // loads nav file ?>
+
+<!-- Main content of the Page -->
 <main class="travel-container">
 
     <section class="travel-user">
@@ -62,7 +63,7 @@ $destinations = getdestinations( $conn,
  </section>
 
 
-// New section created for searching destinations 
+<!-- New section created for searching destinations -->
     <section class="search-section">  
         <form method="GET" action="Travelplanner.php">
 
@@ -72,11 +73,12 @@ $destinations = getdestinations( $conn,
                 type="search"
                 id="search"
                 name="search"
+                maxlength="100"
                 placeholder="Enter a destination or country"
                 value="<?= escapeHTML($search) ?>"
             >
 
-// Destination category dropdown box created with all the categories available in database
+<!-- Destination category dropdown box created with all the categories available in database -->
             <label for="category">Destination category</label> 
             <select id="category" name="category">
                 <option value="">All Categories</option>
@@ -95,7 +97,7 @@ $destinations = getdestinations( $conn,
     </section>
 
 
-<section class="no destinations-section">
+<section class="destinations-section">
         <h2>Explore Destinations</h2>
 
         <p>
@@ -105,7 +107,7 @@ $destinations = getdestinations( $conn,
 
         <div class="destination-grid">
 
-            <?php if (empty($destinations)): ?>  // if no destination found then its a empty array 
+            <?php if (empty($destinations)): // if no destination found then its a empty array ?>
 
                 <p class="no-results">
                     No destinations found.
@@ -114,17 +116,15 @@ $destinations = getdestinations( $conn,
     <?php else: ?>
 
                 <?php foreach ($destinations as $destination): ?>
-                <article class="destination-card">   // Outer Container or layout 
+                <article class="destination-card">   <!-- Outer Container or layout -->
 
     <div class="destination-content">
 
-        <span class="category-label"> // Small inline created for categories 
+        <span class="category-label"> <!-- Small inline created for categories -->
             <?= escapeHTML($destination['category']) ?>
         </span>
 
-    </div>
-</article>
-     <h3>  //Paragrapgh created containing Destinaiton's info 
+     <h3>  <!--Paragrapgh created containing Destinaiton's info -->
                                 <?= escapeHTML($destination['name']) ?>,
                                 <?= escapeHTML($destination['country']) ?>
                             </h3>
@@ -141,26 +141,20 @@ $destinations = getdestinations( $conn,
                                 ) ?>
                             </p>
 
-                       <p>
-                                <strong>Best time to travel:</strong>
-                                <?= escapeHTML($destination['best_month']) ?>
-                            </p>
- 
-                        </div>
- 
-                    </article>
- 
+    </div>
+</article>
+
                 <?php endforeach; ?>
- 
+
             <?php endif; ?>
- 
+
         </div>
     </section>
- 
+
 </main>
- 
+
 <?php include 'footer.inc'; ?>
- 
+
 </body>
-</html>
+</html> 
  
