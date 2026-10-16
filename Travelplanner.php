@@ -141,4 +141,26 @@ $destinations = getdestinations( $conn,
                                 ) ?>
                             </p>
 
-
+                       <p>
+                                <strong>Best time to travel:</strong>
+                                <?= escapeHTML($destination['best_month']) ?>
+                            </p>
+ 
+                        </div>
+ 
+                    </article>
+ 
+                <?php endforeach; ?>
+ 
+            <?php endif; ?>
+ 
+        </div>
+    </section>
+ 
+</main>
+ 
+<?php include 'footer.inc'; ?>
+ 
+</body>
+</html>
+ 
