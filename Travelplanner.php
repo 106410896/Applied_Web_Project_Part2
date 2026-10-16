@@ -52,7 +52,7 @@ $destinations = getdestinations( $conn,
 // Main content of the Page 
 <main class="travel-container">
 
-    <section class="travel-hero">
+    <section class="travel-user">
         <h1>Discover Your Next Destination</h1>
 
         <p>
@@ -105,10 +105,24 @@ $destinations = getdestinations( $conn,
 
         <div class="destination-grid">
 
-            <?php if (empty($destinations)): ?>
+            <?php if (empty($destinations)): ?>  // if no destination found then its a empty array 
 
                 <p class="no-results">
                     No destinations found.
                     Try another search or category.
                 </p>
-    
+    <?php else: ?>
+
+                <?php foreach ($destinations as $destination): ?>
+                <article class="destination-card">   // Outer Container or layout 
+
+    <div class="destination-content">
+
+        <span class="category-label"> // Small inline created for categories 
+            <?= escapeHTML($destination['category']) ?>
+        </span>
+
+    </div>
+</article>
+
+
