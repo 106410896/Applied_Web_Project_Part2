@@ -10,7 +10,7 @@
       <!-- Navigation bar -->
       <ul class="nav-links">
         <li><a href="about.php">About</a></li>
-        <li><a href="jobs.php" class="current-page">Jobs</a></li>
+        <li><a href="_jobs.php" class="current-page">Jobs</a></li>
         <li><a href="apply.php" class="cta-btn">Apply</a></li> 
       </ul>
     </nav>
