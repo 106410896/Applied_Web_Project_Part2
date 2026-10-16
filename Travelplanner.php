@@ -124,5 +124,21 @@ $destinations = getdestinations( $conn,
 
     </div>
 </article>
+     <h3>  //Paragrapgh created containing Destinaiton's info 
+                                <?= escapeHTML($destination['name']) ?>,
+                                <?= escapeHTML($destination['country']) ?>
+                            </h3>
+
+                            <p class="destination-description">
+                                <?= escapeHTML($destination['description']) ?>
+                            </p>
+
+                            <p>
+                                <strong>Estimated daily cost:</strong>
+                                $<?= number_format(
+                                    (float) $destination['avg_daily_cost'],
+                                    2
+                                ) ?>
+                            </p>
 
 
