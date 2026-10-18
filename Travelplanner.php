@@ -51,7 +51,7 @@ function escapeHTML($value)
 <?php require_once 'nav.inc'; // loads nav file ?>
 
 <!-- Main content of the Page -->
-<main class="travel-container">
+<main class="Travel-Mainlines">
 
     <section class="travel-user">
         <h1>Discover Your Next Destination</h1>
@@ -97,7 +97,7 @@ function escapeHTML($value)
     </section>
 
 
-<section class="destinations-section">
+<section class="Destinations-list">
         <h2>Explore Destinations</h2>
 
         <p>
@@ -105,7 +105,7 @@ function escapeHTML($value)
             destination(s) found.
         </p>
 
-        <div class="destination-grid">
+        <div class="destination-results">
 
             <?php if (empty($destinations)): // if no destination found then its a empty array ?>
 
