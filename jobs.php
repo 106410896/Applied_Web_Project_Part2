@@ -233,7 +233,7 @@
 
     <!-- Footer section -->
     
-
     </div>
+    
 </body>
 
