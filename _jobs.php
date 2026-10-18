@@ -28,10 +28,12 @@
                     echo "<section class='column'>";
                         echo "<h1>".$row['title']."</h1>";
                         echo "<h2 style='text-align: right;'><strong>Ref No. </strong>F01X2</h2>";
-                        
-                        echo "<ul class='auto-view'>";
-                            echo "<li>".$row['schedule']."</li>";
-                        echo "</ul>";
+
+                    echo "<ul class='auto-view'>";
+                        echo "<li>".$row['work_type']."</li>";
+                        echo "<li>".$row['location']."</li>";
+                        echo "<li>".$row['salary']."</li>";
+                    echo "</ul>";
 
                     echo "<p style='margin-block: 70px;'></p>";
 
@@ -43,12 +45,20 @@
 
                        echo "<h2>Key Responsibilities Include:</h2>";
                         echo "<ol>";
-                        echo "<li>".$row['responsibilities']."</li>";
+                            echo "<li>".$row['kr_1']."</li>";
+                            echo "<li>".$row['kr_2']."</li>";
+                            echo "<li>".$row['kr_3']."</li>";
+                            echo "<li>".$row['kr_4']."</li>";
+                            echo "<li>".$row['kr_5']."</li>";
                         echo "<ol>";
 
                         echo "<h2>Key Skills:</h2>";
                         echo "<ul>";
-                        echo "<li>".$row['key_skills']."</li>";
+                            echo "<li>".$row['ks_1']."</li>";
+                            echo "<li>".$row['ks_2']."</li>";
+                            echo "<li>".$row['ks_3']."</li>";
+                            echo "<li>".$row['ks_4']."</li>";
+                            echo "<li>".$row['ks_5']."</li>";
                         echo "</ul>";
 
                         echo "<h2>Preferable Skills:</h2>";

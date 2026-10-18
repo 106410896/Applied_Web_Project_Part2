@@ -1,7 +1,7 @@
 <?php
 require_once 'settings.php'; //connect to settings php and database 
 
-require_once 'Travelplanner_functions.inc';  //load the funcitons used by Travel planner
+require_once __DIR__ . '/Travelplanner_functions.inc';  //load the funcitons used by Travel planner
 
 $search = (isset($_GET['search']) && is_string($_GET['search'])) ? trim($_GET['search']) : '';
 $category = (isset($_GET['category']) && is_string($_GET['category'])) ? trim($_GET['category']) : '';  // Get Search and Category values from the URL
