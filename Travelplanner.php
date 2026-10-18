@@ -153,7 +153,7 @@ function escapeHTML($value)
 
 </main>
 
-<?php include 'footer.inc'; ?>
+
 
 </body>
 </html> 
