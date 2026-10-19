@@ -1,3 +1,5 @@
+<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
