@@ -231,7 +231,8 @@
 
         </section>
 
-    <!-- Footer section -->
+    <!-- include file 'footer.inc' used for footer to avoid repetition -->
+    <?php include 'footer.inc'; ?>
     
     </div>
     

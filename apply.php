@@ -208,6 +208,8 @@
 
       </main>
 
+      <!-- include file 'footer.inc' used for footer to avoid repetition -->
+      <?php include 'footer.inc'; ?>
 
     </body>
 </html>
