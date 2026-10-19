@@ -15,8 +15,10 @@
     include 'header.inc';
     require_once 'settings.php';
     
-    $conn = "SELECT * FROM `team_members` ORDER BY `member_id`";
-    $result = mysqli_query($conn, $conn);
+$conn = mysqli_connect($host, $user, $pwd, $sql_db);
+
+$sql = "SELECT * FROM team_members ORDER BY member_id";
+$result = mysqli_query($conn, $sql);
 
 ?>
 
