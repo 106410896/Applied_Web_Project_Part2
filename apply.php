@@ -1,28 +1,16 @@
-<!DOCTYPE html>
+<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Applied Web Project - apply page (Fantastic5)">
-        <meta name="keywords" content="HTML, COS10026, Project, Apply page, Fantastic5">
-        <meta name="author" content="Alagarsamy Chandrasekar Shashanth Kumar">
-        <title>Apply</title>
+<?php
 
-        <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="styles/apply.css">
-        <link rel="stylesheet" href="styles/apply-layout.css">
+/* variables declared for dynamic page author and title setting */
+    $page_author = "Alagarsamy Chandrasekar Shashanth Kumar";
+    $page_title = "Apply";
+    $page_description = "Applied Web Project - Apply page (Fantastic5)"
 
-        <!-- Embedded CSS example -->
-        <style>
-            main h1 {
-                text-align: center;
-                margin-top: 40px;
-                margin-bottom: 40px;
-                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            }
-        </style>
+/* include file 'header.inc' used for header to avoid repetition */
+    include 'header.inc';
 
-    </head>
+?>
 
     <body>
 

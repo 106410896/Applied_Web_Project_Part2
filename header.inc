@@ -3,10 +3,12 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="description" content="Applied Web Project - apply page (Fantastic5)">
-        <meta name="keywords" content="HTML, COS10026, Project, Apply page, Fantastic5">
-        <meta name="author" content="Alagarsamy Chandrasekar Shashanth Kumar">
-        <title>Apply</title>
+        <meta name="description" content="<?php echo isset($page_description) ? $page_description : 'Cybershield Website'; ?>">
+        <meta name="keywords" content="HTML, COS10026, Project, Fantastic5">
+
+        <meta name="author" content="<?php echo isset($page_author) ? $page_author : 'Team Fantastic5'; ?>">
+
+        <title><?php echo isset($page_title) ? $page_title : 'Applied Web Project'; ?></title>
 
         <link rel="stylesheet" href="styles/styles.css">
         <link rel="stylesheet" href="styles/apply.css">

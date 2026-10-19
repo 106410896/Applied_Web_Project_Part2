@@ -1,25 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="About the Fantastic 5 development team">
-  <meta name="keywords" content="Fantastic 5, team, web development">
-  <meta name="author" content="Fantastic 5">
+<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
 
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/about.css">
+<?php
 
-  <style>
-    #group-information {
-      padding-left: 15px;
-      border-left: 10px solid #17365d;
-    }
-  </style>
+/* variables declared for dynamic page author and title setting */
+    $page_author = "Isaac";
+    $page_title = "About Fantastic 5";
+    $page_description = "Applied Web Project - About page (Fantastic5)"
 
-  <title>About Fantastic 5</title>
+/* include file 'header.inc' used for header to avoid repetition */
+    include 'header.inc';
 
-</head>
+?>
 
 <body>
 

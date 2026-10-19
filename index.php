@@ -1,22 +1,20 @@
 <!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="description" content="CyberShield Website Careers Portal">
-    <meta name="author" content="Manas and Kshitij">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CyberShield</title>
+<?php
 
-    
-    <link rel="stylesheet" href="styles/styles.css">
-    <link rel="stylesheet" href="styles/index.css">
-</head>
+/* variables declared for dynamic page author and title setting */
+    $page_author = "Manas and Kshitij";
+    $page_title = "Cybershield";
+    $page_description = "Cybershield Website Careers Portal"
+
+/* include file 'header.inc' used for header to avoid repetition */
+    include 'header.inc';
+
+?>
 
 <body>
 
-    <!-- All global header elements live under 'header' tag -->
+    <!-- include file 'nav.inc' used for navigation bar to avoid repetition -->
     <?php include 'nav.inc'; ?>
 
 <!-- edited by Shashanth: Hey Manas, hey Kshitij. I just fixed the code here real quick to actually get the menu bar I designed into it, so that the webpage is more consistent. Any queries about this, just reach out to me. Thanks. -->
