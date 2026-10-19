@@ -9,7 +9,7 @@
 
     $page_stylesheets = [
         "styles/apply.css",
-        "styles.apply-layout.css"
+        "styles/apply-layout.css"
     ];
 
 /* include file 'header.inc' used for header to avoid repetition */
@@ -17,7 +17,9 @@
 
 ?>
 
-<!-- Embedded CSS example -->
+    <body>
+
+      <!-- Embedded CSS example -->
         <style>
             main h1 {
                 text-align: center;
@@ -27,9 +29,7 @@
             }
         </style>
 
-    <body>
-
-      <!-- All global header elements live under 'header' tag -->
+      <!-- include file 'nav.inc' used for navigation bar to avoid repetition -->
       <?php include 'nav.inc'; ?>
 
       <!-- 'main' is a semantic tag that tells the browser where all the page-specific unique content lives. -->

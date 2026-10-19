@@ -16,19 +16,17 @@
 
 ?>
 
-<style>
+<body>
+
+  <style>
     #group-information {
       padding-left: 15px;
       border-left: 10px solid #17365d;
     }
   </style>
 
-<body>
-
-
-  <!-- Main Menu/Navigation bar element -->
-
-
+   <!-- include file 'nav.inc' used for navigation bar to avoid repetition -->
+    <?php include 'nav.inc'; ?>
 
   <main>
     <h1>About Fantastic 5</h1>

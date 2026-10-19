@@ -16,14 +16,14 @@
 
 ?>
 
+<body>
+
 <!-- Font size, color and style for paragraphs within the aside section -->
   <style>
 
     aside p {font-size: small; font-style: italic; color: rgb(68, 66, 66);}
 
   </style>
-
-<body>
 
 <?php include 'nav.inc';?>
 
