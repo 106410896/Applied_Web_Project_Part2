@@ -60,9 +60,7 @@
       <!-- Set to be hidden unless mouse hovers the column -->
       <div class="toggle-view">
         <h2>Description:</h2>
-        <p> A <strong>Back-End Web Developer</strong> To provide code for the structure of 
-          an online platform that informs users on destination information, tour bookings, 
-          accommodation services as well as options for a personalised travel plan.
+        <p> A Back-End Web Developer To provide code for the structure of an online tourism platform that allows users to access destination information, tour bookings, accommodation services as well as options for a personalised travel plan.
         </p>
 
         <h2>Key Responsibilities Include:</h2>

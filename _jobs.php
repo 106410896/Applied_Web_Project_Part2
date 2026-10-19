@@ -21,13 +21,17 @@
     $sql = "SELECT * FROM jobs_table";
     $result = mysqli_query($db_con, $sql); ?>
 
+    <p style="margin-block: 60px;"></p>
+    <h1 style="text-align: center; color: rgb(18, 18, 91);">Open Positions</h1>
+    <p style="margin-block: 60px;"></p>
+
         <?php if ($result) 
             {
                 while ($row = mysqli_fetch_assoc($result)) 
                 {
                     echo "<section class='column'>";
                         echo "<h1>".$row['title']."</h1>";
-                        echo "<h2 style='text-align: right;'><strong>Ref No. </strong>F01X2</h2>";
+                        echo "<h2 style='text-align: right;'><strong>Ref No. </strong>".$row['ref_num']."</h2>";
 
                     echo "<ul class='auto-view'>";
                         echo "<li>".$row['work_type']."</li>";
@@ -50,7 +54,7 @@
                             echo "<li>".$row['kr_3']."</li>";
                             echo "<li>".$row['kr_4']."</li>";
                             echo "<li>".$row['kr_5']."</li>";
-                        echo "<ol>";
+                        echo "</ol>";
 
                         echo "<h2>Key Skills:</h2>";
                         echo "<ul>";
