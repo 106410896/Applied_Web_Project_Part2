@@ -183,7 +183,7 @@
             <th scope="row">Kshitij</th>
             <td>106378541</td>
             <td>I Love playing Basketball</td>
-            <td>Images referencing and index page designer</td>
+            <td>Created TravelPlaner page and worked on Main Page Css too</td>
           </tr>
 
           <tr>

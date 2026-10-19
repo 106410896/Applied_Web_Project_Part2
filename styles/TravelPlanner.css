@@ -11,3 +11,8 @@ body {
     line-height: 1.6;
     
 }
+/* Navigation bar */
+.navbar {
+    background-color: #123b50;
+    padding: 16px 6%;
+}
