@@ -25,6 +25,17 @@
     <h1 style="text-align: center; color: rgb(18, 18, 91);">Open Positions</h1>
     <p style="margin-block: 60px;"></p>
 
+    <aside>
+    <h3> Currently Open Positions</h3>
+    <form action="job_result.php" method="get">
+        <label for="job"><strong>Enter Job Name: </strong></label>
+        <input type="text" id="job" name="job" required>
+    </form>
+    <p>*Hover over each listing to see more details regarding the relevant position.</p>
+  </aside>
+
+    <div>
+
         <?php if ($result) 
             {
                 while ($row = mysqli_fetch_assoc($result)) 
@@ -45,7 +56,7 @@
 
                     echo "<div class='toggle-view'>";
                         echo "<h2>Description:</h2>";
-                        echo "<p><strong>".$row['description']."</strong></p>";
+                        echo "<p>".$row['description']."</p>";
 
                        echo "<h2>Key Responsibilities Include:</h2>";
                         echo "<ol>";
@@ -74,8 +85,8 @@
                         echo "<p style='margin-block: 40px; line-height: 150px;'></p>";
 
                         // Reporting Line
-                        echo "<p><em>".$row['contact']."</em><a href='mailto:106510262@student.swin.edu.au' target='_blank'
-                        title='Reporting Line'>Email</a></p>";
+                        echo "<p><em>".$row['contact']."</em><a href=".$row['email']." target='_blank'
+                        title='Reporting Line'> (Email)</a></p>";
 
                         echo "<p style='margin-block: 40px; line-height: 150px;'></p>";
 
@@ -84,6 +95,8 @@
                     echo "</div>";
                     echo "</section>";
                 }  
-            }?>      
+            }?>   
+            
+    </div>
 
 </body>
