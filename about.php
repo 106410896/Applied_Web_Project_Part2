@@ -13,6 +13,10 @@
 
 /* include file 'header.inc' used for header to avoid repetition */
     include 'header.inc';
+    require_once 'settings.php';
+    
+    $conn = "SELECT * FROM `team_members` ORDER BY `member_id`";
+    $result = mysqli_query($conn, $conn);
 
 ?>
 
@@ -164,42 +168,23 @@
           </tr>
         </thead>
 
-        <tbody>
-          <tr>
-            <th scope="row">Ollie</th>
-            <td>106510262</td>
-            <td>I like to draw comics.</td>
-            <td>Jobs page designer</td>
-          </tr>
+          <tbody>
+              <?php
+              // Run the query again for the second display.
+              $result = mysqli_query($conn, $sql);
 
-          <tr>
-            <th scope="row">Manas</th>
-            <td>106543763</td>
-            <td> I love playing chess and cricket</td>
-            <td>Home page and validation</td>
-          </tr>
+              while ($row = mysqli_fetch_assoc($result)) {
+                  echo "<tr>";
+                  echo "<th scope='row'>" . htmlspecialchars($row['member_name']) . "</th>";
+                  echo "<td>" . htmlspecialchars($row['student_id']) . "</td>";
+                  echo "<td>" . htmlspecialchars($row['fun_fact']) . "</td>";
+                  echo "<td>" . htmlspecialchars($row['project_role']) . "</td>";
+                  echo "</tr>";
+              }
 
-          <tr>
-            <th scope="row">Kshitij</th>
-            <td>106378541</td>
-            <td>I Love playing Basketball</td>
-            <td>Created TravelPlaner page and worked on Main Page Css too</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Isaac</th>
-            <td>105919389</td>
-            <td>I like skating</td>
-            <td>About page and Jira</td>
-          </tr>
-
-          <tr>
-            <th scope="row">Shashanth</th>
-            <td>106410896</td>
-            <td>I'm an aspiring filmmaker and writer</td>
-            <td>Application page, CSS and GitHub</td>
-          </tr>
-        </tbody>
+              mysqli_close($conn);
+              ?>
+          </tbody>
       </table>
     </section>
 
