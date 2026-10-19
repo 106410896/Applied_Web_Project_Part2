@@ -25,7 +25,7 @@
 
 
   <!-- Main Menu/Navigation bar element -->
-  <?php include 'nav.inc'; ?>
+
 
 
   <main>
@@ -134,7 +134,7 @@
       <article>
         <h3>Isaac Malual</h3>
         <blockquote lang="">
-          <p>Ya Wa di Laou</p>
+          <p>THE ONE PIECE IS REALLLLLLLLL</p>
         </blockquote>
          
       </article>
