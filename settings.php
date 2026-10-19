@@ -13,5 +13,3 @@ mysqli_set_charset($conn, 'utf8mb4');
     $pwd = "";
     $sql_db = "fantastic5";
 ?>
-mysqli_set_charset($conn, 'utf8mb4');       // encodes texts into data 
-?>                                        
