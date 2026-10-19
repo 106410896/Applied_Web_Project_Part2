@@ -5,7 +5,6 @@ if (!$conn) {
     die('Database connection failed.'); // if connection failed then database stops 
 
 }
-<<<<<<< HEAD
 mysqli_set_charset($conn, 'utf8mb4'); 
 ?>                                         // encodes texts into data 
 <?php
@@ -14,7 +13,5 @@ mysqli_set_charset($conn, 'utf8mb4');
     $pwd = "";
     $sql_db = "fantastic5";
 ?>
-=======
 mysqli_set_charset($conn, 'utf8mb4');       // encodes texts into data 
 ?>                                        
->>>>>>> 83a5dccef22366751c1d840503446b8d16ff0dc9
