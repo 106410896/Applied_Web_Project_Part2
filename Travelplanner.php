@@ -1,7 +1,7 @@
 <?php
 require_once 'settings.php'; //connect to settings php and database 
 
-require_once 'Travelplanner_functions.inc';  //load the funcitons used by Travel planner
+require_once __DIR__ . '/Travelplanner_functions.inc';  //load the funcitons used by Travel planner
 
 $search = (isset($_GET['search']) && is_string($_GET['search'])) ? trim($_GET['search']) : '';
 $category = (isset($_GET['category']) && is_string($_GET['category'])) ? trim($_GET['category']) : '';  // Get Search and Category values from the URL
@@ -51,7 +51,7 @@ function escapeHTML($value)
 <?php require_once 'nav.inc'; // loads nav file ?>
 
 <!-- Main content of the Page -->
-<main class="travel-container">
+<main class="Travel-Mainlines">
 
     <section class="travel-user">
         <h1>Discover Your Next Destination</h1>
@@ -97,7 +97,7 @@ function escapeHTML($value)
     </section>
 
 
-<section class="destinations-section">
+<section class="Destinations-list">
         <h2>Explore Destinations</h2>
 
         <p>
@@ -105,7 +105,7 @@ function escapeHTML($value)
             destination(s) found.
         </p>
 
-        <div class="destination-grid">
+        <div class="destination-results">
 
             <?php if (empty($destinations)): // if no destination found then its a empty array ?>
 
@@ -153,7 +153,8 @@ function escapeHTML($value)
 
 </main>
 
-<?php include 'footer.inc'; ?>
+
 
 </body>
 </html> 
+ 
