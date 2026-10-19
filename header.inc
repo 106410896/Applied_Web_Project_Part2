@@ -11,8 +11,13 @@
         <title><?php echo isset($page_title) ? $page_title : 'Applied Web Project'; ?></title>
 
         <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="styles/apply.css">
-        <link rel="stylesheet" href="styles/apply-layout.css">
+
+        <?php if (isset($page_stylesheets)) {
+            foreach ($page_stylesheets as $sheet) {
+                echo '    <link rel="stylesheet" href="' . htmlspecialchars($sheet) . '">' . "\n";
+            }
+        }
+        ?>
 
         <!-- Embedded CSS example -->
         <style>

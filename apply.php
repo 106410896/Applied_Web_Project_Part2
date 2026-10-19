@@ -2,10 +2,15 @@
 
 <?php
 
-/* variables declared for dynamic page author and title setting */
+/* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Alagarsamy Chandrasekar Shashanth Kumar";
     $page_title = "Apply";
     $page_description = "Applied Web Project - Apply page (Fantastic5)"
+
+    $page_stylesheets = [
+        "styles/apply.css",
+        "styles.apply-layout.css"
+    ];
 
 /* include file 'header.inc' used for header to avoid repetition */
     include 'header.inc';

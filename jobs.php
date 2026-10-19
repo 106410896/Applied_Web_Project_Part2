@@ -2,10 +2,14 @@
 
 <?php
 
-/* variables declared for dynamic page author and title setting */
+/* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Ollie Madu";
     $page_title = "Position Description Page";
     $page_description = "Applied Web Project - Jobs page (Fantastic5)"
+
+    $page_stylesheets = [
+        "styles/jobs.css"
+    ];
 
 /* include file 'header.inc' used for header to avoid repetition */
     include 'header.inc';

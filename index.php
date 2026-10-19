@@ -2,10 +2,14 @@
 
 <?php
 
-/* variables declared for dynamic page author and title setting */
+/* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Manas and Kshitij";
     $page_title = "Cybershield";
     $page_description = "Cybershield Website Careers Portal"
+
+    $page_stylesheets = [
+        "styles/index.css"
+    ];
 
 /* include file 'header.inc' used for header to avoid repetition */
     include 'header.inc';
