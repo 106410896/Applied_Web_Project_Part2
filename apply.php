@@ -5,7 +5,7 @@
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Alagarsamy Chandrasekar Shashanth Kumar";
     $page_title = "Apply";
-    $page_description = "Applied Web Project - Apply page (Fantastic5)"
+    $page_description = "Applied Web Project - Apply page (Fantastic5)";
 
     $page_stylesheets = [
         "styles/apply.css",
@@ -16,6 +16,16 @@
     include 'header.inc';
 
 ?>
+
+<!-- Embedded CSS example -->
+        <style>
+            main h1 {
+                text-align: center;
+                margin-top: 40px;
+                margin-bottom: 40px;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            }
+        </style>
 
     <body>
 

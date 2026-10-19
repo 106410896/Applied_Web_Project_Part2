@@ -5,7 +5,7 @@
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Manas and Kshitij";
     $page_title = "Cybershield";
-    $page_description = "Cybershield Website Careers Portal"
+    $page_description = "Cybershield Website Careers Portal";
 
     $page_stylesheets = [
         "styles/index.css"

@@ -5,7 +5,7 @@
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Ollie Madu";
     $page_title = "Position Description Page";
-    $page_description = "Applied Web Project - Jobs page (Fantastic5)"
+    $page_description = "Applied Web Project - Jobs page (Fantastic5)";
 
     $page_stylesheets = [
         "styles/jobs.css"
@@ -15,6 +15,13 @@
     include 'header.inc';
 
 ?>
+
+<!-- Font size, color and style for paragraphs within the aside section -->
+  <style>
+
+    aside p {font-size: small; font-style: italic; color: rgb(68, 66, 66);}
+
+  </style>
 
 <body>
 

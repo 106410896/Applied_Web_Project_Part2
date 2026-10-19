@@ -5,7 +5,7 @@
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Isaac";
     $page_title = "About Fantastic 5";
-    $page_description = "Applied Web Project - About page (Fantastic5)"
+    $page_description = "Applied Web Project - About page (Fantastic5)";
 
     $page_stylesheets = [
         "styles/about.css"
@@ -15,6 +15,13 @@
     include 'header.inc';
 
 ?>
+
+<style>
+    #group-information {
+      padding-left: 15px;
+      border-left: 10px solid #17365d;
+    }
+  </style>
 
 <body>
 

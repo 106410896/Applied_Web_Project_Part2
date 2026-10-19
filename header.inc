@@ -19,14 +19,4 @@
         }
         ?>
 
-        <!-- Embedded CSS example -->
-        <style>
-            main h1 {
-                text-align: center;
-                margin-top: 40px;
-                margin-bottom: 40px;
-                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            }
-        </style>
-
     </head>
