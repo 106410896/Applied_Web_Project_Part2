@@ -1,4 +1,4 @@
-/* Travel PLanner Main Page style */
+/* 1. General page styling */
 * {
     box-sizing: border-box;
 }
@@ -9,9 +9,9 @@ body {
     background-color: #f4f8fb;
     color: #263238;
     line-height: 1.6;
-    
 }
-/* Navigation bar */
+
+/* 2. Navigation bar */
 .navbar {
     background-color: #123b50;
     padding: 16px 6%;
