@@ -1,14 +1,18 @@
-:root {
-    --nav-blue: #3f527f;
-    --dark-navy: #1f2a40;
-    --accent-purple: #6b1a7a;
-    --card-border: lightblue;
-    --panel-bg: #eef3fb;
-    --text-grey: #444444;
+/* 1. General page styling */
+* {
+    box-sizing: border-box;
 }
 
-.Travel-Mainlines {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 160px 20px 40px;
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f8fb;
+    color: #263238;
+    line-height: 1.6;
+}
+
+/* 2. Navigation bar */
+.navbar {
+    background-color: #123b50;
+    padding: 16px 6%;
 }
