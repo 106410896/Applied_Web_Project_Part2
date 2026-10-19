@@ -71,86 +71,17 @@
     </section>
 
     <section id="contributions">
-      <h2>Member Contributions</h2>
+    <h2>Member Contributions</h2>
 
-      <!-- Definition list -->
-      <dl>
-        <dt>Ollie Madu</dt>
-        <dd>
-          Responsible for the HTML structure and page layout of
-          <code>jobs.html</code>.
-        </dd>
-
-        <dt>Manas Alwani</dt>
-        <dd>
-          Responsible for <code>index.html</code>, code validation and helping
-          the team write valid HTML5.
-        </dd>
-
-        <dt>Kshitij Shetty</dt>
-        <dd>
-          Responsible for finding suitable images, adding APA 7 references
-          where required and helping write HTML5.
-        </dd>
-
-        <dt>Isaac Malual</dt>
-        <dd>
-          Responsible for <code>about.php</code> and managing the team's Jira
-          project.
-        </dd>
-
-        <dt>Shashanth Kumar</dt>
-        <dd>
-          Responsible for <code>apply.php</code>, CSS development, deadline
-          reminders and managing the GitHub repository.
-        </dd>
-      </dl>
-    </section>
-
-    <section id="member-quotes">
-      <h2>Quotes from Our Members</h2>
-
-      <article>
-        <h3>Ollie Madu</h3>
-        <blockquote lang="">
-          <p>"There is no tooth fairy, there is no easter bunny, and there is
-            no Queen of England."</p>
-        </blockquote>
-         
-      </article>
-
-      <article>
-        <h3>Manas Alwani</h3>
-        <blockquote lang="">
-          <p>"Knowing others is intelligence, knowing yourself is true wisdom."</p>
-        </blockquote>
-         
-      </article>
-
-      <article>
-        <h3>Kshitij Shetty</h3>
-        <blockquote lang="">
-          <p> Only the fiercest wind reveals the strongest grass</p>
-        </blockquote>
-         
-      </article>
-
-      <article>
-        <h3>Isaac Malual</h3>
-        <blockquote lang="">
-          <p>THE ONE PIECE IS REALLLLLLLLL</p>
-        </blockquote>
-         
-      </article>
-
-      <article>
-        <h3>Shashanth Kumar</h3>
-        <blockquote lang="">
-          <p>"Nee Strong aanavantha na adha illangala un emotion enakku puriyudhu ana antha glove nammba ellarayavidayum SAKTHI vaainthathu"</p>
-        </blockquote>
-         
-      </article>
-    </section>
+    <dl>
+        <?php
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo "<dt>" . htmlspecialchars($row['member_name']) . "</dt>";
+            echo "<dd>" . htmlspecialchars($row['contribution']) . "</dd>";
+        }
+        ?>
+    </dl>
+</section>
 
     <section id="fun-facts">
       <h2>Team Fun Facts</h2>
