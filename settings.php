@@ -11,6 +11,6 @@ mysqli_set_charset($conn, 'utf8mb4');  // encodes text into data
     $host = "localhost";
     $user = "root";
     $pwd = "";
-    $sql_db = "fantastic5";
+    $sql_db = "travel_db";
 ?>
                       
