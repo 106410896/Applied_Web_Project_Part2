@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
 
-<head>
-  <meta charset="utf-8">
-  <meta name="description" content="Job Title Page">
-  <meta name="keywords" content="">
-  <meta name="author" content="Ollie Madu">
+<?php
 
-  <link rel="stylesheet" href="styles/jobs.css">
-  <link rel="stylesheet" href="styles/styles.css">
+/* variables declared for dynamic page author, title setting and stylesheet loading */
+    $page_author = "Ollie Madu";
+    $page_title = "Position Description Page";
+    $page_description = "Applied Web Project - Jobs page (Fantastic5)";
 
-  <title>Position Description Page</title>
-</head>
+    $page_stylesheets = [
+        "styles/jobs.css"
+    ];
+
+/* include file 'header.inc' used for header to avoid repetition */
+    include 'header.inc';
+
+?>
+
 <body>
     <?php include 'nav.inc';
 

@@ -1,18 +1,25 @@
-<!DOCTYPE html>
+<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
 
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="description" content="Applied Web Project - apply page (Fantastic5)">
-        <meta name="keywords" content="HTML, COS10026, Project, Apply page, Fantastic5">
-        <meta name="author" content="Alagarsamy Chandrasekar Shashanth Kumar">
-        <title>Apply</title>
+<?php
 
-        <link rel="stylesheet" href="styles/styles.css">
-        <link rel="stylesheet" href="styles/apply.css">
-        <link rel="stylesheet" href="styles/apply-layout.css">
+/* variables declared for dynamic page author, title setting and stylesheet loading */
+    $page_author = "Alagarsamy Chandrasekar Shashanth Kumar";
+    $page_title = "Apply";
+    $page_description = "Applied Web Project - Apply page (Fantastic5)";
 
-        <!-- Embedded CSS example -->
+    $page_stylesheets = [
+        "styles/apply.css",
+        "styles/apply-layout.css"
+    ];
+
+/* include file 'header.inc' used for header to avoid repetition */
+    include 'header.inc';
+
+?>
+
+    <body>
+
+      <!-- Embedded CSS example -->
         <style>
             main h1 {
                 text-align: center;
@@ -22,11 +29,7 @@
             }
         </style>
 
-    </head>
-
-    <body>
-
-      <!-- All global header elements live under 'header' tag -->
+      <!-- include file 'nav.inc' used for navigation bar to avoid repetition -->
       <?php include 'nav.inc'; ?>
 
       <!-- 'main' is a semantic tag that tells the browser where all the page-specific unique content lives. -->
@@ -205,6 +208,8 @@
 
       </main>
 
+      <!-- include file 'footer.inc' used for footer to avoid repetition -->
+      <?php include 'footer.inc'; ?>
 
     </body>
 </html>

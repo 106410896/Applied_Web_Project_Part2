@@ -5,8 +5,8 @@ if (!$conn) {
     die('Database connection failed.'); // if connection failed then database stops 
 
 }
-mysqli_set_charset($conn, 'utf8mb4'); 
-?>                                         // encodes texts into data 
+mysqli_set_charset($conn, 'utf8mb4');  // encodes text into data 
+?>                                        
 <?php
     $host = "localhost";
     $user = "root";
