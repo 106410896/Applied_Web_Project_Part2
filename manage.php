@@ -2,175 +2,83 @@
 <?php
 session_start();
 
-// Function to safely display text
-function clean($value) {
-    return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
+function clean($x) {
+    return htmlspecialchars((string)$x, ENT_QUOTES, 'UTF-8');
 }
 
-// Create a security token
 if (!isset($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 
-// Sample applications (no database required)
 if (!isset($_SESSION['applications'])) {
     $_SESSION['applications'] = [
-        [
-            'EOInumber' => 1,
-            'job_ref' => 'JOB001',
-            'first_name' => 'John',
-            'last_name' => 'Smith',
-            'email' => 'john@example.com',
-            'status' => 'New'
-        ],
-        [
-            'EOInumber' => 2,
-            'job_ref' => 'JOB002',
-            'first_name' => 'Sarah',
-            'last_name' => 'Wilson',
-            'email' => 'sarah@example.com',
-            'status' => 'Current'
-        ],
-        [
-            'EOInumber' => 3,
-            'job_ref' => 'JOB001',
-            'first_name' => 'David',
-            'last_name' => 'Brown',
-            'email' => 'david@example.com',
-            'status' => 'Final'
-        ]
+        ['id'=>1, 'job'=>'JOB001', 'first'=>'John', 'last'=>'Smith', 'email'=>'john@example.com', 'status'=>'New'],
+        ['id'=>2, 'job'=>'JOB002', 'first'=>'Sarah', 'last'=>'Wilson', 'email'=>'sarah@example.com', 'status'=>'Current'],
+        ['id'=>3, 'job'=>'JOB001', 'first'=>'David', 'last'=>'Brown', 'email'=>'david@example.com', 'status'=>'Final']
     ];
 }
 
-$message = "";
+$message = '';
 
-// Handle update and delete requests
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-    if (!isset($_POST['token']) ||
-        !hash_equals($_SESSION['token'], $_POST['token'])) {
-        exit("Invalid request");
+    if (!hash_equals($_SESSION['token'], $_POST['token'] ?? '')) {
+        exit('Invalid request');
     }
 
-    $action = $_POST['action'] ?? '';
-
-    // Update application status
-    if ($action == 'update') {
-
-        $number = filter_var(
-            $_POST['number'] ?? null,
-            FILTER_VALIDATE_INT
-        );
-
+    if (($_POST['action'] ?? '') == 'update') {
+        $id = filter_var($_POST['id'] ?? null, FILTER_VALIDATE_INT);
         $status = $_POST['status'] ?? '';
 
-        if ($number !== false &&
-            $number > 0 &&
-            in_array($status, ['New', 'Current', 'Final'], true)) {
-
-            $updated = false;
-
-            foreach ($_SESSION['applications'] as &$application) {
-                if ($application['EOInumber'] == $number) {
-                    $application['status'] = $status;
-                    $updated = true;
+        if ($id !== false && in_array($status, ['New', 'Current', 'Final'], true)) {
+            foreach ($_SESSION['applications'] as &$app) {
+                if ($app['id'] == $id) {
+                    $app['status'] = $status;
+                    $message = 'Status updated';
                     break;
                 }
             }
-
-            unset($application);
-
-            $message = $updated
-                ? "Status updated successfully"
-                : "Application not found";
-        } else {
-            $message = "Invalid application number or status";
+            unset($app);
         }
     }
 
-    // Delete applications by job reference
-    if ($action == 'delete') {
-
-        $reference = trim($_POST['delete_ref'] ?? '');
-        $confirm = $_POST['confirm'] ?? '';
-
-        if ($reference != '' && $confirm == 'yes') {
-
-            $before = count($_SESSION['applications']);
-
-            $_SESSION['applications'] = array_values(
-                array_filter(
-                    $_SESSION['applications'],
-                    function ($application) use ($reference) {
-                        return $application['job_ref'] !== $reference;
-                    }
-                )
-            );
-
-            $deleted = $before - count($_SESSION['applications']);
-
-            $message = $deleted . " applications deleted";
-
-        } else {
-            $message = "Please confirm deletion";
+    if (($_POST['action'] ?? '') == 'delete' && ($_POST['confirm'] ?? '') == 'yes') {
+        $ref = trim($_POST['ref'] ?? '');
+        if ($ref !== '') {
+            $_SESSION['applications'] = array_values(array_filter(
+                $_SESSION['applications'],
+                fn($a) => $a['job'] !== $ref
+            ));
+            $message = 'Applications deleted';
         }
     }
 }
 
-// Get search values
 $job = trim($_GET['job'] ?? '');
 $first = trim($_GET['first'] ?? '');
 $last = trim($_GET['last'] ?? '');
-$sort = $_GET['sort'] ?? 'EOInumber';
+$sort = $_GET['sort'] ?? 'id';
 
-// Allowed sorting fields
-$allowed = [
-    'EOInumber',
-    'job_ref',
-    'first_name',
-    'last_name',
-    'status'
-];
+$fields = ['id', 'job', 'first', 'last', 'status'];
+if (!in_array($sort, $fields, true)) $sort = 'id';
 
-if (!in_array($sort, $allowed, true)) {
-    $sort = 'EOInumber';
-}
+$apps = array_values(array_filter(
+    $_SESSION['applications'],
+    fn($a) =>
+        ($job == '' || $a['job'] == $job) &&
+        ($first == '' || stripos($a['first'], $first) !== false) &&
+        ($last == '' || stripos($a['last'], $last) !== false)
+));
 
-// Copy applications for searching
-$applications = $_SESSION['applications'];
-
-// Search applications
-$applications = array_values(
-    array_filter(
-        $applications,
-        function ($row) use ($job, $first, $last) {
-
-            return
-                ($job == '' || $row['job_ref'] == $job) &&
-                ($first == '' ||
-                    stripos($row['first_name'], $first) !== false) &&
-                ($last == '' ||
-                    stripos($row['last_name'], $last) !== false);
-        }
-    )
-);
-
-// Sort applications
-usort($applications, function ($a, $b) use ($sort) {
-    return $a[$sort] <=> $b[$sort];
-});
+usort($apps, fn($a, $b) => $a[$sort] <=> $b[$sort]);
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Management</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
-
 <body>
 
 <?php include 'header.inc'; ?>
@@ -179,158 +87,91 @@ usort($applications, function ($a, $b) use ($sort) {
 <h1>Tourism and Travel Technology Platform</h1>
 <h2>HR Management</h2>
 
-<p><?php echo clean($message); ?></p>
+<p><?= clean($message) ?></p>
 
-<h2>Search Job Applications</h2>
+<h2>Search Applications</h2>
 
-<form method="get" action="manage.php">
+<form method="get">
+    <input name="job" placeholder="Job Reference" value="<?= clean($job) ?>">
+    <input name="first" placeholder="First Name" value="<?= clean($first) ?>">
+    <input name="last" placeholder="Last Name" value="<?= clean($last) ?>">
 
-    <p>
-        <label for="job">Job Reference:</label>
-        <input type="text" name="job" id="job"
-               value="<?php echo clean($job); ?>">
-    </p>
+    <select name="sort">
+        <?php foreach ($fields as $field): ?>
+            <option value="<?= clean($field) ?>" <?= $sort == $field ? 'selected' : '' ?>>
+                <?= clean($field) ?>
+            </option>
+        <?php endforeach; ?>
+    </select>
 
-    <p>
-        <label for="first">First Name:</label>
-        <input type="text" name="first" id="first"
-               value="<?php echo clean($first); ?>">
-    </p>
-
-    <p>
-        <label for="last">Last Name:</label>
-        <input type="text" name="last" id="last"
-               value="<?php echo clean($last); ?>">
-    </p>
-
-    <p>
-        <label for="sort">Sort By:</label>
-
-        <select name="sort" id="sort">
-
-            <?php foreach ($allowed as $field) { ?>
-
-                <option value="<?php echo clean($field); ?>"
-                    <?php if ($sort == $field) echo 'selected'; ?>>
-
-                    <?php echo clean($field); ?>
-
-                </option>
-
-            <?php } ?>
-
-        </select>
-    </p>
-
-    <p>
-        <input type="submit" value="Search">
-        <a href="manage.php">Show All</a>
-    </p>
-
+    <button type="submit">Search</button>
+    <a href="manage.php">Show All</a>
 </form>
 
-<h2>All Job Applications</h2>
+<h2>Job Applications</h2>
 
 <table border="1">
+<tr>
+    <th>EOI Number</th>
+    <th>Job Reference</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Status</th>
+    <th>Update</th>
+</tr>
 
-    <tr>
-        <th>EOI Number</th>
-        <th>Job Reference</th>
-        <th>First Name</th>
-        <th>Last Name</th>
-        <th>Email</th>
-        <th>Status</th>
-        <th>Update</th>
-    </tr>
+<?php foreach ($apps as $a): ?>
+<tr>
+    <td><?= clean($a['id']) ?></td>
+    <td><?= clean($a['job']) ?></td>
+    <td><?= clean($a['first']) ?></td>
+    <td><?= clean($a['last']) ?></td>
+    <td><?= clean($a['email']) ?></td>
+    <td><?= clean($a['status']) ?></td>
+    <td>
+        <form method="post">
+            <input type="hidden" name="token" value="<?= clean($_SESSION['token']) ?>">
+            <input type="hidden" name="action" value="update">
+            <input type="hidden" name="id" value="<?= clean($a['id']) ?>">
 
-    <?php foreach ($applications as $row) { ?>
-
-    <tr>
-        <td><?php echo clean($row['EOInumber']); ?></td>
-        <td><?php echo clean($row['job_ref']); ?></td>
-        <td><?php echo clean($row['first_name']); ?></td>
-        <td><?php echo clean($row['last_name']); ?></td>
-        <td><?php echo clean($row['email']); ?></td>
-        <td><?php echo clean($row['status']); ?></td>
-
-        <td>
-            <form method="post" action="manage.php">
-
-                <input type="hidden" name="token"
-                       value="<?php echo clean($_SESSION['token']); ?>">
-
-                <input type="hidden" name="action" value="update">
-
-                <input type="hidden" name="number"
-                       value="<?php echo clean($row['EOInumber']); ?>">
-
-                <select name="status">
-
-                    <option value="New"
-                        <?php if ($row['status'] == 'New') echo 'selected'; ?>>
-                        New
+            <select name="status">
+                <?php foreach (['New', 'Current', 'Final'] as $s): ?>
+                    <option value="<?= $s ?>" <?= $a['status'] == $s ? 'selected' : '' ?>>
+                        <?= $s ?>
                     </option>
+                <?php endforeach; ?>
+            </select>
 
-                    <option value="Current"
-                        <?php if ($row['status'] == 'Current') echo 'selected'; ?>>
-                        Current
-                    </option>
-
-                    <option value="Final"
-                        <?php if ($row['status'] == 'Final') echo 'selected'; ?>>
-                        Final
-                    </option>
-
-                </select>
-
-                <input type="submit" value="Update">
-
-            </form>
-        </td>
-    </tr>
-
-    <?php } ?>
-
+            <button type="submit">Update</button>
+        </form>
+    </td>
+</tr>
+<?php endforeach; ?>
 </table>
 
-<?php if (count($applications) == 0) { ?>
+<?php if (count($apps) == 0): ?>
     <p>No applications found.</p>
-<?php } ?>
+<?php endif; ?>
 
 <h2>Delete Applications</h2>
 
-<form method="post" action="manage.php">
-
-    <input type="hidden" name="token"
-           value="<?php echo clean($_SESSION['token']); ?>">
-
+<form method="post">
+    <input type="hidden" name="token" value="<?= clean($_SESSION['token']) ?>">
     <input type="hidden" name="action" value="delete">
 
-    <p>
-        <label for="delete_ref">Job Reference:</label>
+    <input name="ref" placeholder="Job Reference" required>
 
-        <input type="text" name="delete_ref"
-               id="delete_ref" required>
-    </p>
+    <label>
+        <input type="checkbox" name="confirm" value="yes" required>
+        Confirm deletion
+    </label>
 
-    <p>
-        <input type="checkbox" name="confirm"
-               value="yes" id="confirm" required>
-
-        <label for="confirm">
-            Confirm deletion of all applications for this job
-        </label>
-    </p>
-
-    <p>
-        <input type="submit" value="Delete Applications">
-    </p>
-
+    <button type="submit">Delete Applications</button>
 </form>
 
 <?php include 'footer.inc'; ?>
 
 </body>
 </html>
-
 
