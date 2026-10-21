@@ -87,7 +87,7 @@
 
                         // Reporting Line
                         echo "<p><em>".$row['contact']."</em><a href=".$row['email']." target='_blank'
-                        title='Reporting Line'> (Email)</a></p>";
+                        title='Reporting Line'>(Email)</a></p>";
 
                         echo "<p style='margin-block: 40px; line-height: 150px;'></p>";
 
