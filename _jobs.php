@@ -7,9 +7,7 @@
     $page_title = "Position Description Page";
     $page_description = "Applied Web Project - Jobs page (Fantastic5)";
 
-    $page_stylesheets = [
-        "styles/jobs.css"
-    ];
+    $page_stylesheets = ["styles/jobs.css"];
 
 /* include file 'header.inc' used for header to avoid repetition */
     include 'header.inc';
@@ -19,11 +17,10 @@
 <body>
     <?php include 'nav.inc';
 
-    require_once('_settings.php');
-    $db_con = mysqli_connect("localhost", "root", "", "fantastic5");
+    require_once('settings.php');
 
     $sql = "SELECT * FROM jobs_table";
-    $result = mysqli_query($db_con, $sql); ?>
+    $result = mysqli_query($conn, $sql); ?>
 
     <p style="margin-block: 60px;"></p>
     <h1 style="text-align: center; color: rgb(18, 18, 91);">Open Positions</h1>
