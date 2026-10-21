@@ -2,17 +2,17 @@
 <?php
 session_start();
 
-// Function to safely display text
+
 function clean($value) {
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
-// Create a security token
+
 if (!isset($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 
-// Sample applications (no database required)
+
 if (!isset($_SESSION['applications'])) {
     $_SESSION['applications'] = [
         [
@@ -44,7 +44,7 @@ if (!isset($_SESSION['applications'])) {
 
 $message = "";
 
-// Handle update and delete requests
+
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     if (!isset($_POST['token']) ||
@@ -54,7 +54,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $action = $_POST['action'] ?? '';
 
-    // Update application status
+    
     if ($action == 'update') {
 
         $number = filter_var(
@@ -88,7 +88,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 
-    // Delete applications by job reference
+    
     if ($action == 'delete') {
 
         $reference = trim($_POST['delete_ref'] ?? '');
@@ -117,13 +117,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-// Get search values
+
 $job = trim($_GET['job'] ?? '');
 $first = trim($_GET['first'] ?? '');
 $last = trim($_GET['last'] ?? '');
 $sort = $_GET['sort'] ?? 'EOInumber';
 
-// Allowed sorting fields
+
 $allowed = [
     'EOInumber',
     'job_ref',
@@ -136,10 +136,10 @@ if (!in_array($sort, $allowed, true)) {
     $sort = 'EOInumber';
 }
 
-// Copy applications for searching
+
 $applications = $_SESSION['applications'];
 
-// Search applications
+
 $applications = array_values(
     array_filter(
         $applications,
@@ -155,7 +155,7 @@ $applications = array_values(
     )
 );
 
-// Sort applications
+
 usort($applications, function ($a, $b) use ($sort) {
     return $a[$sort] <=> $b[$sort];
 });
