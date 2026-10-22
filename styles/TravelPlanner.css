@@ -26,6 +26,45 @@ body {
     text-align: center;
     margin-bottom: 30px;
 }
+
+ .travel-user h1 {
+    color: #123b50;
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.travel-user p {
+    color: #54656e;
+    margin-bottom: 20px;
+}
+/* Search Form */
+.search-section {
+    background-color: #ffffff;
+    padding: 25px;
+    margin-bottom: 35px;
+    border-radius: 12px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.search-section form {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.search-section label {
+    font-weight: bold;
+}
+
+.search-section input,
+.search-section select {
+    padding: 10px;
+    border: 1px solid #bdcbd3;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 15px;
+}
 /* Navigation bar */
 .navbar {
     background-color: #123b50;
