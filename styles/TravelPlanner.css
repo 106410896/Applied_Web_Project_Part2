@@ -15,7 +15,12 @@ body {
 .navbar {
     background-color: #123b50;
     padding: 16px 6%;
+     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 80px;
 }
+/* Navigation Links */
 .nav-links {
     display: flex;
     justify-content: flex-end;
@@ -36,9 +41,34 @@ body {
 .nav-links a:hover {
     color: #9ee7d8;
 }
+/* Logo size */
+.navbar img {
+    width: 200px;
+    height: auto;
+    display: block;
+}
 /* 3. Main page container */
 .travel-container {
     width: 90%;
     max-width: 1150px;
     margin: 35px auto;
+}
+
+/* Responsive navigation */
+@media (max-width: 600px) {
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 5%;
+    }
+
+    .navbar img {
+        width: 160px;
+    }
+
+     .nav-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
 }
