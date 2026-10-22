@@ -29,8 +29,8 @@
     <aside>
     <h3> Currently Open Positions</h3>
     <form action="job_result.php" method="get">
-        <label for="job"><strong>Enter Job Name: </strong></label>
-        <input type="text" id="job" name="job" required>
+        <label for="ref"><strong>Enter Job Reference Number: </strong></label>
+        <input type="text" id="ref" name="ref" required>
     </form>
     <p>*Hover over each listing to see more details regarding the relevant position.</p>
   </aside>
