@@ -42,3 +42,164 @@ body {
     max-width: 1150px;
     margin: 35px auto;
 }
+
+/* 4. Introduction section */
+.travel-hero {
+    background: linear-gradient(135deg, #d9f2ee, #e5efff);
+    padding: 55px 35px;
+    border-radius: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.travel-hero h1 {
+    color: #123b50;
+    font-size: 38px;
+    line-height: 1.25;
+    margin: 0 0 15px;
+}
+
+.travel-hero p {
+    color: #465d68;
+    font-size: 18px;
+    margin: 0;
+}
+
+/* 5. Search form */
+.travel-search {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(25, 55, 75, 0.08);
+    margin-bottom: 35px;
+}
+
+.travel-search label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #123b50;
+}
+
+.travel-search input,
+.travel-search select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #cbd5df;
+    border-radius: 7px;
+    font-size: 16px;
+    background-color: white;
+    margin-bottom: 16px;
+}
+
+.travel-search input:focus,
+.travel-search select:focus {
+    outline: 2px solid #4ba99a;
+    border-color: #4ba99a;
+}
+
+/* 6. Buttons and links */
+.travel-search button,
+.travel-button {
+    display: inline-block;
+    padding: 12px 22px;
+    background-color: #167d78;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.travel-search button:hover,
+.travel-button:hover {
+    background-color: #105e5a;
+}
+
+.travel-search .clear-link {
+    display: inline-block;
+    margin-left: 12px;
+    color: #167d78;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.travel-search .clear-link:hover {
+    text-decoration: underline;
+}
+
+/* 7. Destination results section */
+.destinations-section h2 {
+    color: #123b50;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.results-count {
+    color: #5c6f7a;
+    margin-bottom: 22px;
+}
+
+/* 8. Individual destination cards */
+.destination-card {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 22px;
+    border-radius: 12px;
+    border: 1px solid #e1e9ef;
+    box-shadow: 0 4px 14px rgba(25, 55, 75, 0.06);
+}
+
+.destination-card h3 {
+    color: #123b50;
+    font-size: 23px;
+    margin: 8px 0;
+}
+
+.destination-card p {
+    color: #53656f;
+    margin: 10px 0;
+}
+
+/* 9. Destination category label */
+.destination-category {
+    display: inline-block;
+    background-color: #dff4ef;
+    color: #176b60;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+/* 10. Estimated daily cost */
+.destination-cost {
+    color: #123b50;
+    font-size: 17px;
+    margin-top: 15px;
+}
+
+.destination-cost strong {
+    color: #167d78;
+}
+
+/* 11. No results message */
+.no-results {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    color: #53656f;
+    text-align: center;
+}
+
+/* 12. Footer, if included on your page */
+.travel-footer {
+    margin-top: 50px;
+    padding: 22px;
+    background-color: #123b50;
+    color: white;
+    text-align: center;
+}
+

@@ -48,7 +48,7 @@ function escapeHTML($value)
 
 <body>
 
-<?php require_once 'nav.inc'; // loads nav file ?>
+<?php require_once 'nav.inc';  ?> // lods nav file 
 
 <!-- Main content of the Page -->
 <main class="Travel-Mainlines">
