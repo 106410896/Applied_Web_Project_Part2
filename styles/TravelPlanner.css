@@ -203,36 +203,3 @@ body {
     text-align: center;
 }
 
-/* 13. Responsive design for phones */
-@media (max-width: 650px) {
-    .travel-container {
-        width: 92%;
-        margin: 20px auto;
-    }
-
-    .travel-hero {
-        padding: 35px 18px;
-    }
-
-    .travel-hero h1 {
-        font-size: 29px;
-    }
-
-    .travel-hero p {
-        font-size: 16px;
-    }
-
-    .nav-links {
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 14px;
-    }
-
-    .travel-search {
-        padding: 18px;
-    }
-
-    .destination-card {
-        padding: 18px;
-    }
-}
