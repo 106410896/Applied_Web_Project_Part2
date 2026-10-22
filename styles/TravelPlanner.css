@@ -32,7 +32,7 @@ header .navbar {
     gap: 25px;
 }
 /* Logo */
-header. logo{
+header .logo{
     flex-shrink: 0;
 
 }
@@ -77,7 +77,32 @@ header .nav-links a:hover {
     color: #9ee7d8;
 
 }
+header .nav-links .cta-btn:hover {
+    color: white;
+    background-color: #641464;
+}
 
+/* Smaller screens */
+@media (max-width: 900px) {
+    header .navbar {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    header .logo img {
+        width: 250px;
+    }
+  header .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        min-height: auto;
+        gap: 8px;
+    }
+
+    header .nav-links a {
+        font-size: 17px;
+    }
+}
 
 
 
@@ -256,4 +281,3 @@ header .nav-links a:hover {
         grid-template-columns: 1fr;
     }
 }
-
