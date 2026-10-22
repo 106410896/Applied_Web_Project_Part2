@@ -2,21 +2,22 @@
 <header>
     <nav class="navbar">
 
-        <!-- CyberShield logo -->
+        <!-- CyberShield Logo -->
         <div class="logo">
-            <a href="index.html">
+            <a href="index.php">
                 <img src="images/logo-main.png" alt="CyberShield Logo">
             </a>
         </div>
 
-        <!-- Navigation links -->
+        <!-- Navigation Links -->
         <ul class="nav-links">
+
             <li>
                 <a href="about.php">About</a>
             </li>
 
             <li>
-                <a href="_jobs.php">Jobs</a>
+                <a href="jobs.php">Jobs</a>
             </li>
 
             <li>
@@ -26,7 +27,8 @@
             <li>
                 <a href="Travelplanner.php">Travel Planner</a>
             </li>
-        </ul>
 
+        </ul>
     </nav>
 </header>
+
