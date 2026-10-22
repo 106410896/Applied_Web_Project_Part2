@@ -3,7 +3,7 @@
     <nav class="navbar">
       <div class="logo">
         <a 
-        href="index.php"><img src="images/logo-main.png" alt="Cybershield Logo">
+        href="index.php"><img src="images/FlyAnywhere.png" alt="Cybershield Logo">
         </a>
       </div>
 
