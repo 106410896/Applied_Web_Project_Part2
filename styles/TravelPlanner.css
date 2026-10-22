@@ -65,6 +65,31 @@ body {
     font-family: inherit;
     font-size: 15px;
 }
+
+.search-section input {
+    flex: 1;
+    min-width: 180px;
+}
+
+.search-section select {
+    min-width: 150px;
+    background-color: white;
+}
+
+.search-section button {
+    background-color: #123b50;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #20566e;
+}
+
 /* Navigation bar */
 .navbar {
     background-color: #123b50;
