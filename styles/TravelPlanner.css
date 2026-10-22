@@ -1,3 +1,4 @@
+
 /* Travel PLanner Main Page style */
 * {
     box-sizing: border-box;
@@ -9,25 +10,23 @@ body {
     background-color: #f4f8fb;
     color: #263238;
     line-height: 1.6;
-    
 }
 
- 
-  /* Main Content */
-                 
+/* Main Content */
 
 .Travel-Mainlines {
     width: 90%;
     max-width: 1150px;
     margin: 35px auto;
 }
+
 /* Welcome section */
 .travel-user {
     text-align: center;
     margin-bottom: 30px;
 }
 
- .travel-user h1 {
+.travel-user h1 {
     color: #123b50;
     font-size: 32px;
     margin-bottom: 10px;
@@ -37,6 +36,7 @@ body {
     color: #54656e;
     margin-bottom: 20px;
 }
+
 /* Search Form */
 .search-section {
     background-color: #ffffff;
@@ -89,14 +89,6 @@ body {
 .search-section button:hover {
     background-color: #20566e;
 }
-    border-radius: 6px;
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.search-section button:hover {
-    background-color: #20566e;
-}
 
 .search-section a {
     color: #123b50;
@@ -107,8 +99,8 @@ body {
 .search-section a:hover {
     text-decoration: underline;
 }
-/* Destination Results */
 
+/* Destination Results */
 .Destinations-list h2 {
     color: #123b50;
     margin-bottom: 5px;
@@ -154,4 +146,44 @@ body {
     background-color: white;
     padding: 20px;
     border-radius: 8px;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+    .destination-results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .Travel-Mainlines {
+        width: 92%;
+    }
+}
+
+@media (max-width: 600px) {
+    .Travel-Mainlines {
+        margin: 25px auto;
+    }
+
+    .travel-user h1 {
+        font-size: 26px;
+    }
+
+    .search-section {
+        padding: 18px;
+    }
+
+    .search-section form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .search-section input,
+    .search-section select,
+    .search-section button {
+        width: 100%;
+    }
+
+    .destination-results {
+        grid-template-columns: 1fr;
+    }
 }
