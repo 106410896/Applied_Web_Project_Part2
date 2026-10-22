@@ -87,13 +87,13 @@
             }
             else
             {
-                echo "🚫 No matching jobs found. <a href='_jobs.php'>Try Again</a>";
+                echo "🚫 No matching jobs found. <a href='jobs.php'>Try Again</a>";
             }
             mysqli_close($db_con);
         }
         else
         {
-            echo "Invalid login. <a href='_jobs.php'>Please enter a reference number to search.</a>";
+            echo "Invalid login. <a href='jobs.php'>Please enter a reference number to search.</a>";
         }
 
     ?>
