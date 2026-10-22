@@ -11,6 +11,19 @@ body {
     color: #263238;
     line-height: 1.6;
 }
+/* Header - Similiar to other pages of website(Code taken from style.css code) */
+header {
+    background-color: #7190d7;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.50);
+    margin-top: -8px;
+    margin-inline: -8px;
+    border-radius: 0 0 24px 24px;
+}
+
+
 
 /* Main Content */
 
@@ -187,3 +200,4 @@ body {
         grid-template-columns: 1fr;
     }
 }
+
