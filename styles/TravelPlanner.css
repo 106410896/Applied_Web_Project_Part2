@@ -22,6 +22,27 @@ header {
     margin-inline: -8px;
     border-radius: 0 0 24px 24px;
 }
+/* Logo and navigation adjustment */
+header .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 20px 3%;
+    gap: 25px;
+}
+/* Logo */
+header. logo{
+    flex-shrink: 0;
+
+}
+header .logo img {
+    display: block;
+    width: 330px;
+    max-width: 100%;
+    height: auto;
+}
+
 
 
 
