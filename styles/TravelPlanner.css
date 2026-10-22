@@ -89,6 +89,53 @@ body {
 .search-section button:hover {
     background-color: #20566e;
 }
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.search-section button:hover {
+    background-color: #20566e;
+}
+
+.search-section a {
+    color: #123b50;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.search-section a:hover {
+    text-decoration: underline;
+}
+/* Destination Results */
+
+.Destinations-list h2 {
+    color: #123b50;
+    margin-bottom: 5px;
+}
+
+.destination-results {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    margin-top: 20px;
+}
+
+.destination-card {
+    background-color: white;
+    border: 1px solid #e0e8ed;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+    overflow-wrap: anywhere;
+}
+
+.destination-content h3 {
+    color: #123b50;
+    line-height: 1.4;
+    margin: 12px 0;
+}
+
 
 /* Navigation bar */
 .navbar {
