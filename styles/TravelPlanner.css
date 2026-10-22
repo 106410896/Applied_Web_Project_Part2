@@ -1,4 +1,4 @@
-/* Travel PLanner Main Page style */
+```css
 * {
     box-sizing: border-box;
 }
@@ -9,18 +9,19 @@ body {
     background-color: #f4f8fb;
     color: #263238;
     line-height: 1.6;
-    
 }
+
 /* Navigation bar */
 .navbar {
     background-color: #123b50;
-    padding: 16px 6%;
-     display: flex;
+    padding: 12px 6%;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     min-height: 80px;
 }
-/* Navigation Links */
+
+/* Navigation links */
 .nav-links {
     display: flex;
     justify-content: flex-end;
@@ -41,13 +42,15 @@ body {
 .nav-links a:hover {
     color: #9ee7d8;
 }
+
 /* Logo size */
 .navbar img {
     width: 200px;
     height: auto;
     display: block;
 }
-/* 3. Main page container */
+
+/* Main page container */
 .travel-container {
     width: 90%;
     max-width: 1150px;
@@ -66,9 +69,10 @@ body {
         width: 160px;
     }
 
-     .nav-links {
+    .nav-links {
         justify-content: center;
         flex-wrap: wrap;
         gap: 15px;
     }
 }
+```
