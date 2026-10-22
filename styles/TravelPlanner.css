@@ -42,6 +42,41 @@ header .logo img {
     max-width: 100%;
     height: auto;
 }
+/* Rounded navigation menu */
+header .nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 12px 25px;
+    background-color: #405984;
+    border-radius: 60px;
+    min-height: 96px;
+}
+
+/* Navigation links */
+header .nav-links a {
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    padding: 8px 18px;
+}
+/* Apply button */
+header .nav-links .cta-btn {
+    background-color: #7b197b;
+    border-radius : 35px;
+}
+
+/*Hover effect */
+header .nav-links a:hover {
+    color: #9ee7d8;
+
+}
 
 
 
