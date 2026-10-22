@@ -151,6 +151,9 @@ function escapeHTML($value)
         </div>
     </section>
 
+<?php require_once 'footer.inc'; ?>
+
+
 </main>
 
 
