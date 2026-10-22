@@ -1,16 +1,21 @@
 <header>
 
-<nav class="navbar">
+    <nav class="navbar">
+      <div class="logo">
+        <a 
+        href="index.html"><img src="images/logo-main.png" alt="Cybershield Logo">
+        </a>
+      </div>
 
-    <div class="logo">
-        <!-- Your existing logo HTML goes here -->
-    </div>
-
-    <ul class="nav-links">
-        <li><a href="#">About</a></li>
-        <li><a href="#">Jobs</a></li>
-        <li><a href="#">Apply</a></li>
-        <li><a href="Travelplanner.php">Travel Planner</a></li>
-    </ul>
-
-</nav>
+      <!-- Navigation bar -->
+      <ul class="nav-links">
+        <li><a href="about.php">About</a></li>
+        <li><a href="_jobs.php" class="current-page">Jobs</a></li>
+        <li><a href="apply.php" class="cta-btn">Apply</a></li> 
+        <li> 
+    <a href="Travelplanner.php">Travel Planner</a>
+</li>
+      </ul>
+    </nav>
+    
+  </header> 
