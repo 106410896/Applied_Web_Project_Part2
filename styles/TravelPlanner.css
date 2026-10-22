@@ -11,6 +11,21 @@ body {
     line-height: 1.6;
     
 }
+
+ 
+  /* Main Content */
+                 
+
+.Travel-Mainlines {
+    width: 90%;
+    max-width: 1150px;
+    margin: 35px auto;
+}
+/* Welcome section */
+.travel-user {
+    text-align: center;
+    margin-bottom: 30px;
+}
 /* Navigation bar */
 .navbar {
     background-color: #123b50;
