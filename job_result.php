@@ -14,14 +14,14 @@
 
 <body>
     <?php 
-        require_once('_settings.php');
+        require_once('settings.php');
         $db_con = mysqli_connect("localhost", "root", "", "fantastic5");
 
-        $job_entered = mysqli_real_escape_string($db_con, $_GET['job']);
+        $ref_entered = mysqli_real_escape_string($db_con, $_GET['ref']);
 
-        if (isset($job_entered))
+        if (isset($ref_entered))
         {
-            $sql = "SELECT * FROM jobs_table WHERE title like '%$job_entered%'";
+            $sql = "SELECT * FROM jobs_table WHERE ref_num like '%$ref_entered%'";
             $result = mysqli_query($db_con, $sql);
 
             if (mysqli_num_rows($result) > 0) 
@@ -47,7 +47,7 @@
                         echo "<h2>Description:</h2>";
                         echo "<p>".$row['description']."</p>";
 
-                       echo "<h2>Key Responsibilities Include:</h2>";
+                    echo "<h2>Key Responsibilities Include:</h2>";
                         echo "<ol>";
                             echo "<li>".$row['kr_1']."</li>";
                             echo "<li>".$row['kr_2']."</li>";
@@ -93,7 +93,7 @@
         }
         else
         {
-            echo "Invalid login. <a href='_jobs.php'>Please enter a job to search.</a>";
+            echo "Invalid login. <a href='_jobs.php'>Please enter a reference number to search.</a>";
         }
 
     ?>
