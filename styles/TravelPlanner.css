@@ -1,34 +1,67 @@
-/* Navigation bar */
+
+/* =================================
+   Travel Planner - Main Page Styles
+   ================================= */
+
+/* Apply consistent sizing to all elements */
+* {
+    box-sizing: border-box;
+}
+
+/* General page styling */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f8fb;
+    color: #263238;
+    line-height: 1.6;
+}
+
+/* =================================
+   Navigation Bar
+   ================================= */
+
 .navbar {
     background-color: #123b50;
+    width: 100%;
+    min-height: 85px;
     padding: 12px 6%;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
-    min-height: 90px;
-    width: 100%;
+    gap: 25px;
 }
 
-/* Logo */
-.navbar img {
-    width: 200px;
-    height: auto;
+/* Logo container */
+.navbar .logo {
+    flex-shrink: 0;
+}
+
+/* Logo image size */
+.navbar .logo img {
     display: block;
+    width: 200px;
+    max-width: 100%;
+    height: auto;
 }
 
-/* Navigation links */
+/* Navigation links container */
 .nav-links {
     display: flex;
     justify-content: flex-end;
     align-items: center;
+    flex-wrap: wrap;
     gap: 28px;
+
     list-style: none;
     margin: 0;
     padding: 0;
-    flex-wrap: wrap;
 }
 
+/* Navigation links */
 .nav-links a {
+    display: inline-block;
     color: white;
     text-decoration: none;
     font-size: 16px;
@@ -36,24 +69,74 @@
     white-space: nowrap;
 }
 
+/* Navigation hover effect */
 .nav-links a:hover {
     color: #9ee7d8;
 }
 
-/* Mobile layout */
-@media (max-width: 650px) {
+/* Apply button */
+.nav-links .cta-btn {
+    background-color: #7b197b;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 25px;
+}
+
+/* Apply button hover */
+.nav-links .cta-btn:hover {
+    background-color: #641464;
+    color: white;
+}
+
+/* =================================
+   Main Page Container
+   ================================= */
+
+.travel-container {
+    width: 90%;
+    max-width: 1150px;
+    margin: 35px auto;
+}
+
+/* Main page heading */
+.travel-container h1 {
+    color: #123b50;
+    margin-bottom: 15px;
+}
+
+/* Paragraph styling */
+.travel-container p {
+    margin-bottom: 20px;
+}
+
+/* =================================
+   Responsive Design
+   ================================= */
+
+@media (max-width: 700px) {
+
     .navbar {
         flex-direction: column;
+        justify-content: center;
         gap: 15px;
         padding: 15px 5%;
     }
 
-    .navbar img {
+    .navbar .logo img {
         width: 170px;
     }
 
     .nav-links {
         justify-content: center;
-        gap: 15px;
+        gap: 12px 18px;
+    }
+
+    .nav-links a {
+        font-size: 14px;
+    }
+
+    .travel-container {
+        width: 92%;
+        margin: 25px auto;
     }
 }
