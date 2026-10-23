@@ -1,121 +1,19 @@
-
-/* Travel PLanner Main Page style */
-* {
-    box-sizing: border-box;
-}
+/* Travel Planner Main Page Styles */
 
 body {
-    margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
     background-color: #f4f8fb;
     color: #263238;
     line-height: 1.6;
 }
-/* Header - Similiar to other pages of website(Code taken from style.css code) */
-header {
-    background-color: #7190d7;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.50);
-    margin-top: -8px;
-    margin-inline: -8px;
-    border-radius: 0 0 24px 24px;
-}
-/* Logo and navigation adjustment */
-header .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 20px 3%;
-    gap: 25px;
-}
-/* Flywhere Logo */
-header .logo{
-    flex-shrink: 0;
-
-}
-header .logo img {
-    display: block;
-    width: 330px;
-    max-width: 100%;
-    height: auto;
-}
-/* Rounded navigation menu */
-header .nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 12px 25px;
-    background-color: #405984;
-    border-radius: 60px;
-    min-height: 96px;
-}
-
-/* Navigation links */
-header .nav-links a {
-    display: inline-block;
-    color: white;
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: center;
-    padding: 8px 18px;
-}
-/* Apply button */
-header .nav-links .cta-btn {
-    background-color: #7b197b;
-    border-radius : 35px;
-}
-
-/*Hover effect */
-header .nav-links a:hover {
-    color: #9ee7d8;
-
-}
-header .nav-links .cta-btn:hover {
-    color: white;
-    background-color: #641464;
-}
-
-/* Smaller screens */
-@media (max-width: 900px) {
-    header .navbar {
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    header .logo img {
-        width: 250px;
-    }
-  header .nav-links {
-        flex-wrap: wrap;
-        justify-content: center;
-        min-height: auto;
-        gap: 8px;
-    }
-
-    header .nav-links a {
-        font-size: 17px;
-    }
-}
-
-
-
 
 /* Main Content */
-
 .Travel-Mainlines {
     width: 90%;
     max-width: 1150px;
     margin: 35px auto;
 }
 
-/* Welcome section */
+/* Welcome Section */
 .travel-user {
     text-align: center;
     margin-bottom: 30px;
@@ -132,11 +30,9 @@ header .nav-links .cta-btn:hover {
     margin-bottom: 20px;
 }
 
-
-
 /* Search Form */
 .search-section {
-    background-color: #ffffff;
+    background-color: #fff;
     padding: 25px;
     margin-bottom: 35px;
     border-radius: 12px;
@@ -197,9 +93,6 @@ header .nav-links .cta-btn:hover {
     text-decoration: underline;
 }
 
-
-
-
 /* Destination Results */
 .Destinations-list h2 {
     color: #123b50;
@@ -248,19 +141,14 @@ header .nav-links .cta-btn:hover {
     border-radius: 8px;
 }
 
-
-
-
-
-
-/* Responsive layout */
+/* Responsive Layout */
 @media (max-width: 900px) {
-    .destination-results {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
     .Travel-Mainlines {
         width: 92%;
+    }
+
+    .destination-results {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
 
@@ -291,24 +179,4 @@ header .nav-links .cta-btn:hover {
     .destination-results {
         grid-template-columns: 1fr;
     }
-}
-
-
-
-/*Footer code from style.css */
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #003366;
-    color: white;
-    margin-top: 40px;
-}
-
-footer a {
-    color: #66ccff;
-    text-decoration: none;
-}
-
-footer a:hover {
-    text-decoration: underline;
 }
