@@ -6,5 +6,5 @@
          <a href="mailto:info@cybershield.com"> Email us at:info@cybershield.com</a>
         
         </p>
-        <p>&copy; 2026 CyberShield Website</p>
+        <p>&copy; 2026 FlyAnywhere.com</p>
 </footer>

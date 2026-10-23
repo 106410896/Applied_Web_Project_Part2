@@ -2,22 +2,48 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['hr_logged_in'])) {
-    header("Location: login.php");
-    exit();
-}
-
-include 'settings.php';
 
 function clean($value) {
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
+
 if (!isset($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 
+
+if (!isset($_SESSION['applications'])) {
+    $_SESSION['applications'] = [
+        [
+            'EOInumber' => 1,
+            'job_ref' => 'JOB001',
+            'first_name' => 'John',
+            'last_name' => 'Smith',
+            'email' => 'john@example.com',
+            'status' => 'New'
+        ],
+        [
+            'EOInumber' => 2,
+            'job_ref' => 'JOB002',
+            'first_name' => 'Sarah',
+            'last_name' => 'Wilson',
+            'email' => 'sarah@example.com',
+            'status' => 'Current'
+        ],
+        [
+            'EOInumber' => 3,
+            'job_ref' => 'JOB001',
+            'first_name' => 'David',
+            'last_name' => 'Brown',
+            'email' => 'david@example.com',
+            'status' => 'Final'
+        ]
+    ];
+}
+
 $message = "";
+
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -26,57 +52,77 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         exit("Invalid request");
     }
 
-    if ($_POST['action'] == 'update') {
+    $action = $_POST['action'] ?? '';
+
+    
+    if ($action == 'update') {
 
         $number = filter_var(
-            $_POST['number'],
+            $_POST['number'] ?? null,
             FILTER_VALIDATE_INT
         );
 
-        $status = $_POST['status'];
+        $status = $_POST['status'] ?? '';
 
         if ($number !== false &&
             $number > 0 &&
             in_array($status, ['New', 'Current', 'Final'], true)) {
 
-            $stmt = $conn->prepare(
-                "UPDATE eoi SET status = ? WHERE EOInumber = ?"
-            );
+            $updated = false;
 
-            $stmt->bind_param("si", $status, $number);
-            $stmt->execute();
-            $stmt->close();
+            foreach ($_SESSION['applications'] as &$application) {
+                if ($application['EOInumber'] == $number) {
+                    $application['status'] = $status;
+                    $updated = true;
+                    break;
+                }
+            }
 
-            $message = "Status updated successfully";
+            unset($application);
+
+            $message = $updated
+                ? "Status updated successfully"
+                : "Application not found";
+        } else {
+            $message = "Invalid application number or status";
         }
     }
 
-    if ($_POST['action'] == 'delete') {
+    
+    if ($action == 'delete') {
 
         $reference = trim($_POST['delete_ref'] ?? '');
+        $confirm = $_POST['confirm'] ?? '';
 
-        if ($reference != '' &&
-            ($_POST['confirm'] ?? '') == 'yes') {
+        if ($reference != '' && $confirm == 'yes') {
 
-            $stmt = $conn->prepare(
-                "DELETE FROM eoi WHERE job_ref = ?"
+            $before = count($_SESSION['applications']);
+
+            $_SESSION['applications'] = array_values(
+                array_filter(
+                    $_SESSION['applications'],
+                    function ($application) use ($reference) {
+                        return $application['job_ref'] !== $reference;
+                    }
+                )
             );
 
-            $stmt->bind_param("s", $reference);
-            $stmt->execute();
+            $deleted = $before - count($_SESSION['applications']);
 
-            $message = $stmt->affected_rows .
-                " applications deleted";
+            $message = $deleted . " applications deleted";
 
-            $stmt->close();
+        } else {
+            $message = "Please confirm deletion";
         }
     }
 }
+
 
 $job = trim($_GET['job'] ?? '');
 $first = trim($_GET['first'] ?? '');
 $last = trim($_GET['last'] ?? '');
 $sort = $_GET['sort'] ?? 'EOInumber';
+
 
 $allowed = [
     'EOInumber',
@@ -90,39 +136,29 @@ if (!in_array($sort, $allowed, true)) {
     $sort = 'EOInumber';
 }
 
-$sql = "SELECT * FROM eoi WHERE 1=1";
 
-$values = [];
-$types = "";
+$applications = $_SESSION['applications'];
 
-if ($job != '') {
-    $sql .= " AND job_ref = ?";
-    $values[] = $job;
-    $types .= "s";
-}
 
-if ($first != '') {
-    $sql .= " AND first_name LIKE ?";
-    $values[] = "%" . $first . "%";
-    $types .= "s";
-}
+$applications = array_values(
+    array_filter(
+        $applications,
+        function ($row) use ($job, $first, $last) {
 
-if ($last != '') {
-    $sql .= " AND last_name LIKE ?";
-    $values[] = "%" . $last . "%";
-    $types .= "s";
-}
+            return
+                ($job == '' || $row['job_ref'] == $job) &&
+                ($first == '' ||
+                    stripos($row['first_name'], $first) !== false) &&
+                ($last == '' ||
+                    stripos($row['last_name'], $last) !== false);
+        }
+    )
+);
 
-$sql .= " ORDER BY $sort";
 
-$stmt = $conn->prepare($sql);
-
-if (count($values) > 0) {
-    $stmt->bind_param($types, ...$values);
-}
-
-$stmt->execute();
-$result = $stmt->get_result();
+usort($applications, function ($a, $b) use ($sort) {
+    return $a[$sort] <=> $b[$sort];
+});
 ?>
 
 <!DOCTYPE html>
@@ -130,6 +166,7 @@ $result = $stmt->get_result();
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HR Management</title>
     <link rel="stylesheet" href="styles/styles.css">
 </head>
@@ -141,8 +178,6 @@ $result = $stmt->get_result();
 
 <h1>Tourism and Travel Technology Platform</h1>
 <h2>HR Management</h2>
-
-<p><a href="logout.php">Logout</a></p>
 
 <p><?php echo clean($message); ?></p>
 
@@ -172,12 +207,18 @@ $result = $stmt->get_result();
         <label for="sort">Sort By:</label>
 
         <select name="sort" id="sort">
+
             <?php foreach ($allowed as $field) { ?>
+
                 <option value="<?php echo clean($field); ?>"
                     <?php if ($sort == $field) echo 'selected'; ?>>
+
                     <?php echo clean($field); ?>
+
                 </option>
+
             <?php } ?>
+
         </select>
     </p>
 
@@ -202,7 +243,7 @@ $result = $stmt->get_result();
         <th>Update</th>
     </tr>
 
-    <?php while ($row = $result->fetch_assoc()) { ?>
+    <?php foreach ($applications as $row) { ?>
 
     <tr>
         <td><?php echo clean($row['EOInumber']); ?></td>
@@ -224,6 +265,7 @@ $result = $stmt->get_result();
                        value="<?php echo clean($row['EOInumber']); ?>">
 
                 <select name="status">
+
                     <option value="New"
                         <?php if ($row['status'] == 'New') echo 'selected'; ?>>
                         New
@@ -238,6 +280,7 @@ $result = $stmt->get_result();
                         <?php if ($row['status'] == 'Final') echo 'selected'; ?>>
                         Final
                     </option>
+
                 </select>
 
                 <input type="submit" value="Update">
@@ -250,6 +293,10 @@ $result = $stmt->get_result();
 
 </table>
 
+<?php if (count($applications) == 0) { ?>
+    <p>No applications found.</p>
+<?php } ?>
+
 <h2>Delete Applications</h2>
 
 <form method="post" action="manage.php">
@@ -261,6 +308,7 @@ $result = $stmt->get_result();
 
     <p>
         <label for="delete_ref">Job Reference:</label>
+
         <input type="text" name="delete_ref"
                id="delete_ref" required>
     </p>
@@ -268,6 +316,7 @@ $result = $stmt->get_result();
     <p>
         <input type="checkbox" name="confirm"
                value="yes" id="confirm" required>
+
         <label for="confirm">
             Confirm deletion of all applications for this job
         </label>
@@ -284,8 +333,4 @@ $result = $stmt->get_result();
 </body>
 </html>
 
-<?php
-$stmt->close();
-$conn->close();
-?>
 
