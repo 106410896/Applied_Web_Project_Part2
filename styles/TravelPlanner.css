@@ -31,7 +31,7 @@ header .navbar {
     padding: 20px 3%;
     gap: 25px;
 }
-/* Logo */
+/* Flywhere Logo */
 header .logo{
     flex-shrink: 0;
 
@@ -106,6 +106,7 @@ header .nav-links .cta-btn:hover {
 
 
 
+
 /* Main Content */
 
 .Travel-Mainlines {
@@ -130,6 +131,8 @@ header .nav-links .cta-btn:hover {
     color: #54656e;
     margin-bottom: 20px;
 }
+
+
 
 /* Search Form */
 .search-section {
@@ -194,6 +197,9 @@ header .nav-links .cta-btn:hover {
     text-decoration: underline;
 }
 
+
+
+
 /* Destination Results */
 .Destinations-list h2 {
     color: #123b50;
@@ -242,6 +248,11 @@ header .nav-links .cta-btn:hover {
     border-radius: 8px;
 }
 
+
+
+
+
+
 /* Responsive layout */
 @media (max-width: 900px) {
     .destination-results {
@@ -280,4 +291,20 @@ header .nav-links .cta-btn:hover {
     .destination-results {
         grid-template-columns: 1fr;
     }
+}
+
+
+/* Footer */
+.site-footer {
+    background-color: #405984;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    margin-inline: -8px;
+}
+
+.site-footer p {
+    margin: 5px 0;
+    font-size: 14px;
 }
