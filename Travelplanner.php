@@ -1,3 +1,8 @@
+/*--------
+           Created by Kshitij Shetty 
+                                     ------*/
+
+
 <?php
 require_once 'settings.php'; //connect to settings php and database 
 

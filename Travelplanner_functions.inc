@@ -1,3 +1,7 @@
+/*----
+       Created by Kshitij Shetty ----*/
+
+
 <?php 
 function getdestinations($conn, $search, $category)
 {
