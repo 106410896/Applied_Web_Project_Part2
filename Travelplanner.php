@@ -1,3 +1,8 @@
+/*--------
+           Created by Kshitij Shetty 
+                                     ------*/
+
+
 <?php
 require_once 'settings.php'; //connect to settings php and database 
 
@@ -48,7 +53,7 @@ function escapeHTML($value)
 
 <body>
 
-<?php require_once 'nav.inc'; // loads nav file ?>
+<?php require_once 'nav.inc';  ?> // lods nav file 
 
 <!-- Main content of the Page -->
 <main class="Travel-Mainlines">
@@ -150,6 +155,9 @@ function escapeHTML($value)
 
         </div>
     </section>
+
+<?php require_once 'footer.inc'; ?>
+
 
 </main>
 

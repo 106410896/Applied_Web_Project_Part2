@@ -14,7 +14,7 @@
 
         <?php if (isset($page_stylesheets)) {
             foreach ($page_stylesheets as $sheet) {
-                echo '    <link rel="stylesheet" href="' . htmlspecialchars($sheet) . '">' . "\n";
+                echo '<link rel="stylesheet" href="' . htmlspecialchars($sheet) . '">' . "\n";
             }
         }
         ?>
