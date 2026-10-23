@@ -2,51 +2,37 @@
 <?php
 session_start();
 
+// Protect HR Management page
+if (empty($_SESSION['hr_logged_in'])) {
+    header("Location: login.php");
+    exit();
+}
 
+// Connect to MySQL database
+$conn = mysqli_connect("localhost", "root", "", "hr management");
+
+if (!$conn) {
+    die("Database connection failed");
+}
+
+mysqli_set_charset($conn, "utf8mb4");
+
+// Function to safely display text
 function clean($value) {
     return htmlspecialchars((string)$value, ENT_QUOTES, 'UTF-8');
 }
 
-
+// Create security token
 if (!isset($_SESSION['token'])) {
     $_SESSION['token'] = bin2hex(random_bytes(32));
 }
 
-
-if (!isset($_SESSION['applications'])) {
-    $_SESSION['applications'] = [
-        [
-            'EOInumber' => 1,
-            'job_ref' => 'JOB001',
-            'first_name' => 'John',
-            'last_name' => 'Smith',
-            'email' => 'john@example.com',
-            'status' => 'New'
-        ],
-        [
-            'EOInumber' => 2,
-            'job_ref' => 'JOB002',
-            'first_name' => 'Sarah',
-            'last_name' => 'Wilson',
-            'email' => 'sarah@example.com',
-            'status' => 'Current'
-        ],
-        [
-            'EOInumber' => 3,
-            'job_ref' => 'JOB001',
-            'first_name' => 'David',
-            'last_name' => 'Brown',
-            'email' => 'david@example.com',
-            'status' => 'Final'
-        ]
-    ];
-}
-
 $message = "";
 
-
+// Handle form submissions
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
+    // Check security token
     if (!isset($_POST['token']) ||
         !hash_equals($_SESSION['token'], $_POST['token'])) {
         exit("Invalid request");
@@ -54,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $action = $_POST['action'] ?? '';
 
-    
+    // Update application status
     if ($action == 'update') {
 
         $number = filter_var(
@@ -68,27 +54,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $number > 0 &&
             in_array($status, ['New', 'Current', 'Final'], true)) {
 
-            $updated = false;
+            $stmt = mysqli_prepare(
+                $conn,
+                "UPDATE eoi SET status = ? WHERE EOInumber = ?"
+            );
 
-            foreach ($_SESSION['applications'] as &$application) {
-                if ($application['EOInumber'] == $number) {
-                    $application['status'] = $status;
-                    $updated = true;
-                    break;
-                }
+            mysqli_stmt_bind_param($stmt, "si", $status, $number);
+
+            if (mysqli_stmt_execute($stmt)) {
+                $message = "Status updated successfully";
+            } else {
+                $message = "Could not update status";
             }
 
-            unset($application);
+            mysqli_stmt_close($stmt);
 
-            $message = $updated
-                ? "Status updated successfully"
-                : "Application not found";
         } else {
             $message = "Invalid application number or status";
         }
     }
 
-    
+    // Delete applications by job reference
     if ($action == 'delete') {
 
         $reference = trim($_POST['delete_ref'] ?? '');
@@ -96,20 +82,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($reference != '' && $confirm == 'yes') {
 
-            $before = count($_SESSION['applications']);
-
-            $_SESSION['applications'] = array_values(
-                array_filter(
-                    $_SESSION['applications'],
-                    function ($application) use ($reference) {
-                        return $application['job_ref'] !== $reference;
-                    }
-                )
+            $stmt = mysqli_prepare(
+                $conn,
+                "DELETE FROM eoi WHERE job_ref = ?"
             );
 
-            $deleted = $before - count($_SESSION['applications']);
+            mysqli_stmt_bind_param($stmt, "s", $reference);
 
-            $message = $deleted . " applications deleted";
+            if (mysqli_stmt_execute($stmt)) {
+                $deleted = mysqli_stmt_affected_rows($stmt);
+                $message = $deleted . " applications deleted";
+            } else {
+                $message = "Could not delete applications";
+            }
+
+            mysqli_stmt_close($stmt);
 
         } else {
             $message = "Please confirm deletion";
@@ -117,13 +104,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
-
+// Get search values
 $job = trim($_GET['job'] ?? '');
 $first = trim($_GET['first'] ?? '');
 $last = trim($_GET['last'] ?? '');
 $sort = $_GET['sort'] ?? 'EOInumber';
 
-
+// Allowed sorting fields
 $allowed = [
     'EOInumber',
     'job_ref',
@@ -136,29 +123,35 @@ if (!in_array($sort, $allowed, true)) {
     $sort = 'EOInumber';
 }
 
+// Search applications in database
+$sql = "SELECT * FROM eoi
+        WHERE job_ref LIKE ?
+        AND first_name LIKE ?
+        AND last_name LIKE ?
+        ORDER BY `$sort` ASC";
 
-$applications = $_SESSION['applications'];
+$jobSearch = $job == '' ? '%' : $job;
+$firstSearch = '%' . $first . '%';
+$lastSearch = '%' . $last . '%';
 
+$stmt = mysqli_prepare($conn, $sql);
 
-$applications = array_values(
-    array_filter(
-        $applications,
-        function ($row) use ($job, $first, $last) {
-
-            return
-                ($job == '' || $row['job_ref'] == $job) &&
-                ($first == '' ||
-                    stripos($row['first_name'], $first) !== false) &&
-                ($last == '' ||
-                    stripos($row['last_name'], $last) !== false);
-        }
-    )
+mysqli_stmt_bind_param(
+    $stmt,
+    "sss",
+    $jobSearch,
+    $firstSearch,
+    $lastSearch
 );
 
+mysqli_stmt_execute($stmt);
 
-usort($applications, function ($a, $b) use ($sort) {
-    return $a[$sort] <=> $b[$sort];
-});
+$result = mysqli_stmt_get_result($stmt);
+
+$applications = mysqli_fetch_all($result, MYSQLI_ASSOC);
+
+mysqli_stmt_close($stmt);
+mysqli_close($conn);
 ?>
 
 <!DOCTYPE html>
@@ -176,10 +169,16 @@ usort($applications, function ($a, $b) use ($sort) {
 <?php include 'header.inc'; ?>
 <?php include 'nav.inc'; ?>
 
+<main>
+
 <h1>Tourism and Travel Technology Platform</h1>
 <h2>HR Management</h2>
 
 <p><?php echo clean($message); ?></p>
+
+<p>
+    <a href="logout.php">Logout</a>
+</p>
 
 <h2>Search Job Applications</h2>
 
@@ -327,6 +326,8 @@ usort($applications, function ($a, $b) use ($sort) {
     </p>
 
 </form>
+
+</main>
 
 <?php include 'footer.inc'; ?>
 
