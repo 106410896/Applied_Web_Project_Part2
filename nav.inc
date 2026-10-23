@@ -13,6 +13,7 @@
         <li><a href="jobs.php" class="current-page">Jobs</a></li>
         <li><a href="apply.php" class="cta-btn">Apply</a></li> 
         <li><a href="Travelplanner.php">Travel Planner</a></li>
+        <li><a href="manage.php">Manage-HR Management</a></li>
       </ul>
     </nav>
     
