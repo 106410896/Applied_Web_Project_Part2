@@ -294,17 +294,21 @@ header .nav-links .cta-btn:hover {
 }
 
 
-/* Footer */
-.site-footer {
-    background-color: #405984;
-    color: white;
+
+/*Footer code from style.css */
+footer {
     text-align: center;
     padding: 20px;
+    background-color: #003366;
+    color: white;
     margin-top: 40px;
-    margin-inline: -8px;
 }
 
-.site-footer p {
-    margin: 5px 0;
-    font-size: 14px;
+footer a {
+    color: #66ccff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
 }
