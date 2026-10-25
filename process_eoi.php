@@ -133,7 +133,7 @@ if (empty($form_data['suburb']) || !strlen($form_data['suburb']) > 40) {
 
 // States validation (Must match a real Australian state)
 $valid_states = ['VIC', 'NSW', 'QLD', 'NT', 'WA', 'SA', 'TAS', 'ACT'];
-if (empty($form_data['state']) || !in_array($form_data['state']), $valid_states) {
+if (empty($form_data['state']) || !in_array($form_data['state'], $valid_states)) {
     $errors[] = "Please pick a valid Australian state from the list.";
 }
 
