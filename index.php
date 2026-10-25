@@ -5,7 +5,7 @@
 
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Manas and Kshitij";
-    $page_title = "TravelSphere";
+    $page_title = "Fly anywhere";
     $page_description = "Tourism and Travel Technology Platform Careers Portal";
 
     $page_stylesheets = [
@@ -31,7 +31,7 @@
 
              <div>
 
-               <h1>Tourism and Travel Technology Platform</h1>
+               <h1>Fly anywhere</h1>
                <p><em>Connecting People, Places and Technology.</em></p>
 
              </div>
@@ -69,7 +69,7 @@
 </section>
  <!-- Adding image -->
 <figure class="hero">
-    <img src="images/cyber-laptop.png" alt="Cybersecurity image">
+    <img src="images/World map.png" alt="World map image">
     </figure>
 <!-- Why Join Us Section- Used copitlot to help write the code and paragraph in this section, but understood the code. -->
 <section class="why-join-us">
