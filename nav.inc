@@ -31,7 +31,8 @@
               $class_attr = $active_class ? "class=\"$active_class\"" : "";
               echo "<li><a href=\"$filename\" $class_attr>$label</a></li>";
             }
-          } 
+          }
+        ?>
       </ul>
     </nav>
     
