@@ -13,9 +13,11 @@
         
           $pages = [
             'About' => 'about.php',
-            'Jobs' => '_jobs.php',
+            'Jobs' => 'jobs.php',
             'Apply' => 'apply.php',
-            'Travel Planner' => 'Travelplanner.php'
+            'Travel Planner' => 'Travelplanner.php',
+            'HR Login' => 'login.php'
+
           ];
 
           $current_page = basename($_SERVER['PHP_SELF']);
