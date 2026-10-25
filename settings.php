@@ -6,7 +6,6 @@
     $pwd = "";
     $sql_db = "fantastic5";
 
-    <?php
     $conn = mysqli_connect('localhost', 'root', "", "fantastic5"); // Create connection,there's no password attached to database travle_db 
     if (!$conn) 
     {
