@@ -2,10 +2,11 @@
 
 <?php
 
+
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Manas and Kshitij";
-    $page_title = "Cybershield";
-    $page_description = "Cybershield Website Careers Portal";
+    $page_title = "TravelSphere";
+    $page_description = "Tourism and Travel Technology Platform Careers Portal";
 
     $page_stylesheets = [
         "styles/index.css"
@@ -30,8 +31,8 @@
 
              <div>
 
-               <h1>CyberShield</h1>
-               <p><em>Protecting Tomorrow, Today.</em></p>
+               <h1>Tourism and Travel Technology Platform</h1>
+               <p><em>Connecting People, Places and Technology.</em></p>
 
              </div>
 
@@ -39,28 +40,30 @@
 
            <!-- Company intro- Used copilot to help me write the company intro. Didn't use it for writing the code in this section. -->
 <section class="company-intro">
-    <h2>Welcome to CyberShield</h2>
+    <h2>Welcome to Tourism and Travel Technology Platform</h2>
     <p class="intro-lead">
-        CyberShield is not just a security provider; we are your strategic partner in the digital age. 
-        We specialize in developing secure digital ecosystems, building impenetrable client portals, 
-        and deploying real-time threat-response tools that keep your business one step ahead of cybercriminals.
+       Tourism and Travel Technology Platform is dedicated to improving the travel experience
+       through innovative digital solutions. We specialise in developing user-friendly
+       travel websites, online booking systems, and tourism management platforms.
+       Our goal is to make travelling easier, more accessible, and more convenient
+       for individuals and businesses around the world.
     </p>
 
 
     <div class="trust-box">
         <div class="box">
-            <h3> Proactive Defense</h3>
-            <p>We don't just react to attacks; we predict them. Our team constantly hunts for vulnerabilities before they can be exploited.</p>
+            <h3> Innovative Technology</h3>
+            <p>We develop modern digital solutions that help travellers plan trips, book services, and explore destinations easily.</p>
         </div>
         
         <div class="box">
-            <h3> Data Integrity</h3>
-            <p>Your sensitive data is your business. We implement military-grade encryption and strict access controls to keep it safe.</p>
+            <h3> Customer Satisfaction</h3>
+            <p>Our customers are our priority. We provide reliable and user-friendly platforms to make every travel experience enjoyable.</p>
         </div>
 
         <div class="box">
-            <h3> Real-Time Response</h3>
-            <p>When seconds matter, our advanced monitoring systems alert you instantly, minimizing downtime and financial loss.</p>
+            <h3> Reliable Travel Services</h3>
+            <p>Our technology supports efficient booking systems, travel management, and access to important travel information.</p>
         </div>
     </div>
 </section>
@@ -72,16 +75,21 @@
 <section class="why-join-us">
     <h2>Why Build Your Career with Us?</h2>
     <p class="bold-text">
-        At CyberShield, <strong>we understand that our greatest asset is our people.</strong> We are dedicated to fostering a culture of 
-        continuous learning, offering cutting-edge cybersecurity training, and empowering our team to solve the world's 
-        most complex digital challenges. Whether you are a back-end architect or a front-end visionary, <strong>you will find a 
-        collaborative environment where innovation is rewarded.</strong>
+       At Tourism and Travel Technology Platform, <strong>we believe that our employees
+       are the key to our success.</strong> We provide opportunities to develop technical
+       skills, work on innovative tourism projects, and contribute to the growing
+       travel technology industry. Whether you are a web developer, software engineer,
+       or technology enthusiast, <strong>you will find a supportive environment
+       where teamwork, creativity, and innovation are encouraged.</strong>
     </p>
     
     
     <div class="power-box">
         <p>
-            Ready to join the front lines of digital defense? <strong>Explore our current openings, or apply today to become part of the CyberShield family.</strong>
+           Ready to begin your career in travel technology?
+           <strong>Explore our current job opportunities or apply today
+           to become part of our growing team.</strong>
+
         </p>
         <a href="jobs.php" class="button">View Open Roles</a>
         <a href="apply.php" class="button">Apply</a>
@@ -102,9 +110,10 @@
         <td>Open Roles</td>
         <td>
             <ul>
-                <li>Back-End Web Developer</li>
-                <li>Front-End Web Developer</li>
-                <li>Full Stack Developer</li>
+               <li>Travel Technology Web Developer</li>
+               <li>Front-End Web Developer</li>
+               <li>Full Stack Developer</li>
+
             </ul>
         </td>
     </tr>
@@ -126,14 +135,19 @@
             </p>
 
             <p>
-                We encourage applications from Aboriginal and Torres Strait Islander peoples
-                and are committed to providing culturally safe and inclusive pathways.
-            </p>
+               We encourage applications from Aboriginal and Torres Strait Islander peoples
+               and are committed to providing culturally safe and inclusive career opportunities
+               within the tourism and technology industries.
+
              <!-- Used copilot to help write the awareness about cybercrimes paragraph. Didn't use it to help write code here. -->
-            <h3>Awarness about Cybercrimes</h3>
-            <p>  Cybercrime is one of the fastest-growing threats in the digital world. Every day, individuals 
-        and businesses lose millions of dollars to online scams, phishing attacks, and data breaches. 
-        <strong>Understanding these threats is the first step in protecting yourself. To protect yourself from cybercrimes, contact the Australian Cybersecurity hotline: 1300 CYBER1 (1300 292 371) </strong> 
+            <h3>Awarness about safety</h3>
+            <p> Travelling is an exciting experience, but it is important to stay informed
+               about potential risks. Travellers should be aware of online booking scams,
+               fraudulent travel websites, and misleading accommodation advertisements.
+               <strong>Understanding these risks helps travellers make safer decisions.
+               Always use trusted booking platforms and verify travel information
+               before making payments.</strong>
+           </p>
     </p>
 
        </section>
@@ -146,3 +160,4 @@
 
 </body>
 </html>
+
