@@ -8,8 +8,9 @@
     $page_description = "Applied Web Project - About page (Fantastic5)";
 
     $page_stylesheets = [
-        "styles/about.css"
-    ];
+    "styles/aboutuslayout.css",
+    "styles/about.css"
+];
 
 /* include file 'header.inc' used for header to avoid repetition */
     include 'header.inc';
