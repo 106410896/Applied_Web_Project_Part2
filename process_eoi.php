@@ -102,12 +102,12 @@ if (empty($form_data['job_ref']) || !preg_match("/^[0-9]{6}$/", $form_data['job_
 }
 
 // First Name validation (Letters and spaces only, max 20 characters)
-if (empty($form_data['first_name']) || !preg_match("/^[A-Za-z\s]{1, 20}$/", $form_data['first_name'])) {
+if (empty($form_data['first_name']) || !preg_match("/^[A-Za-z\s]{1,20}$/", $form_data['first_name'])) {
     $errors[] = "First name must contain only alphabetical letters and be 1-20 characters long.";
 }
 
 // Last Name validation (Letters and spaces only, max 20 characters)
-if (empty($form_data['last_name']) || !preg_match("/^[A-Za-z\s]{1, 20}$/", $form_data['last_name'])) {
+if (empty($form_data['last_name']) || !preg_match("/^[A-Za-z\s]{1,20}$/", $form_data['last_name'])) {
     $errors[] = "Last name must contain only alphabetical letters and be 1-20 characters long.";
 }
 
@@ -122,17 +122,17 @@ if (empty($form_data['gender']) || !in_array($form_data['gender'], ['Male', 'Fem
 }
 
 // Street Address validation (Required string, max 40 characters)
-if (empty($form_data['street']) || !preg_match($form_data['street']) > 40) {
+if (empty($form_data['street']) || !strlen($form_data['street']) > 40) {
     $errors[] = "Street Address is required and cannot exceed 40 characters long.";
 }
 
 // Suburb validation (Required string, max 40 characters)
-if (empty($form_data['suburb']) || !preg_match($form_data['suburb']) > 40) {
+if (empty($form_data['suburb']) || !strlen($form_data['suburb']) > 40) {
     $errors[] = "Suburb is required and cannot exceed 40 characters long.";
 }
 
 // States validation (Must match a real Australian state)
-if (empty($form_data['state']) || !preg_match($form_data['state']) > 40) {
+if (empty($form_data['state']) || !in_array($form_data['state'])) {
     $errors[] = "Please pick a valid Australian state from the list.";
 }
 
