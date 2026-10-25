@@ -18,10 +18,10 @@
             'Travel Planner' => 'Travelplanner.php'
           ];
 
-          $current-page = basename($_SERVER['PHP_SELF']);
+          $current_page = basename($_SERVER['PHP_SELF']);
 
           foreach ($pages as $label => $filename) {
-            $active_class = ($current-page == $filename) ? 'current-page' : '';
+            $active_class = ($current_page == $filename) ? 'current_page' : '';
 
             /* applied cta-btn class to apply page if active, else, defaults to dynamically modifying current class */
             if ($filename == 'apply.php') {
