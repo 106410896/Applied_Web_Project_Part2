@@ -148,7 +148,7 @@ if (empty($form_data['email']) || !filter_var($form_data['email'], FILTER_VALIDA
 }
 
 // Email validation (Must be a valid email)
-if (empty($form_data['phone']) || !preg_match("/^[0-9]{8, 12}$/", $form_data['phone'])) {
+if (empty($form_data['phone']) || !preg_match("/^[0-9]{8,12}$/", $form_data['phone'])) {
     $errors[] = "Phone number must contain between 8 to 12 digits.";
 }
 
