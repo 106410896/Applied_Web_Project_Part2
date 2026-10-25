@@ -5,7 +5,7 @@
 
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Manas and Kshitij";
-    $page_title = "Tourism and Travel Technology Platform";
+    $page_title = "TravelSphere";
     $page_description = "Tourism and Travel Technology Platform Careers Portal";
 
     $page_stylesheets = [
