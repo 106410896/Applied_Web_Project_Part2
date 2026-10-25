@@ -51,7 +51,7 @@ function escapeHTML($value)
 <body>
 
 <?
-    //loads nav file 
+    //loads nav file.
     php require_once 'nav.inc';  
 ?>
 
