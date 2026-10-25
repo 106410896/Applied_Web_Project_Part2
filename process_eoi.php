@@ -9,6 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST['job-ref-num'])) {
 /* include database settings */
 require_once('settings.php');
 
+/* automatically creates eoi table if not in database */
 $create_table_query = "CREATE TABLE IF NOT EXISTS eoi (
     eoi_id INT AUTO_INCREMENT PRIMARY KEY,
     job_ref_num CHAR(6) NOT NULL,
@@ -31,3 +32,53 @@ $create_table_query = "CREATE TABLE IF NOT EXISTS eoi (
     status ENUM('New', 'Current', 'Final') DEFAULT 'New' NOT NULL
 )";
 mysqli_query($conn, $create_table_query);
+
+/* 
+________________________________________________________________________________________________________________________
+
+PROCESSING AND SANTISATION
+________________________________________________________________________________________________________________________
+
+/* the clean_input helper function sanitises input data and returns it */
+function clean_input($data, $conn) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    return mysqli_real_escape_string($conn, $data);
+}
+
+/* mapping of fields to reduce redundancy */
+$field_map = [
+    'job_ref'    => 'job-ref-num',
+    'first_name' => 'first-name',
+    'last_name'  => 'last-name',
+    'dob'        => 'DOB',
+    'gender'     => 'gender',
+    'street'     => 'street-address',
+    'suburb'     => 'suburb-town',
+    'state'      => 'state',
+    'postcode'   => 'postcode',
+    'email'      => 'email',
+    'phone'      => 'phone-number',
+    'other_txt'  => 'other-skills'
+];
+
+$form_data = [];
+
+/* dynamically executes clean_input helper function 
+ with null coalescing in place */
+foreach ($field_map as $clean_key => $post_key) {
+    $form_data[$clean_key] = clean_input($_POST[$post_key] ?? '', $conn);
+}
+
+/* ensures even if nothing was ticked in skills field or it doesn't exist,
+ code safely defaults to harmless empty array instead of throwing an error */
+$skills_array = isset($_POST['skills']) && is_array($_POST['skills']) ? $_POST['skills'] : [];
+
+/* builds expected list and creates an empty dictionary to be dynamically filled */
+$target_skills = ['HTML', 'CSS', 'JavaScript', 'PHP', 'MySQL'];
+$skills = [];
+
+/* dynamically checks exactly what checkboxes have been ticked and not ticked */
+foreach ($target_skills as $skill) {
+    $skills[$skill] = in_array($skill, $skills_array) ? 1 : 0;
+}
