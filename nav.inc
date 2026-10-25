@@ -3,7 +3,7 @@
     <nav class="navbar">
       <div class="logo">
         <a 
-        href="index.php"><img src="images/FlyAnywhere.png" alt="Cybershield Logo">
+        href="index.php"><img src="images/FlyAnywhere.png" alt="FlyAnywhere Logo">
         </a>
       </div>
 
@@ -13,7 +13,7 @@
         
           $pages = [
             'About' => 'about.php',
-            'Jobs' => '_jobs.php',
+            'Jobs' => 'jobs.php',
             'Apply' => 'apply.php',
             'Travel Planner' => 'Travelplanner.php',
             'HR Login' => 'login.php'
@@ -23,7 +23,7 @@
           $current_page = basename($_SERVER['PHP_SELF']);
 
           foreach ($pages as $label => $filename) {
-            $active_class = ($current-page == $filename) ? 'current-page' : '';
+            $active_class = ($current_page == $filename) ? 'current_page' : '';
 
             /* applied cta-btn class to apply page if active, else, defaults to dynamically modifying current class */
             if ($filename == 'apply.php') {
@@ -33,7 +33,8 @@
               $class_attr = $active_class ? "class=\"$active_class\"" : "";
               echo "<li><a href=\"$filename\" $class_attr>$label</a></li>";
             }
-          } 
+          }
+        ?>
       </ul>
     </nav>
     
