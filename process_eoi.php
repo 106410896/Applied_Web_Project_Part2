@@ -150,3 +150,61 @@ if (empty($form_data['email']) || !filter_var($form_data['email'], FILTER_VALIDA
 if (empty($form_data['phone']) || !preg_match("/^[0-9]{8, 12}$/", $form_data['phone'])) {
     $errors[] = "Phone number must contain between 8 to 12 digits.";
 }
+
+/*
+________________________________________________________________________________________________________________________
+
+DATABASE INSERTION & FRONT-END PRESENTATION
+________________________________________________________________________________________________________________________
+
+*/
+
+if (count($errors) > 0) {
+    // if any submission fails server validation loops, 
+    // this message is displayed along with specific errors shown
+    echo "<h1>Application Submission Failed</h1>";
+    echo "<p>Please correct the following errors before re-submitting:</p>";
+    echo "<ul style='color: red;'>";
+    foreach ($errors as $error) {
+        echo "<li>" . htmlspecialchars($error) . "</li>";
+    }
+    echo "</ul>";
+
+    // link to allow user to return to apply page
+    echo "<p><a href='apply.php'>Click here to return to the application page</a></p>";
+} else {
+    $insert_query = "INSERT INTO eoi (
+            job_ref_num, first_name, last_name, dob, gender, street_address, 
+            suburb_town, state, postcode, email, phone_number, 
+            skill_html, skill_css, skill_javascript, skill_php, skill_mysql, other_skills
+        ) VALUES (
+            '{$form_data['job_ref']}', '{$form_data['first_name']}', '{$form_data['last_name']}', 
+            '{$form_data['dob']}', '{$form_data['gender']}', '{$form_data['street']}', 
+            '{$form_data['suburb']}', '{$form_data['state']}', '{$form_data['postcode']}', 
+            '{$form_data['email']}', '{$form_data['phone']}', 
+            '{$skills['HTML']}', '{$skills['CSS']}', '{$skills['JavaScript']}', 
+            '{$skills['PHP']}', '{$skills['MySQL']}', '{$form_data['other_txt']}'
+        )";
+
+        $execute_save = mysqli_query($conn, $insert_query);
+
+        if ($execute_save) {
+            // fetch auto-generated unique EOInumber
+            $EOInumber = mysqli_insert_id($conn);
+
+            echo "<div style='max-width: 600px; margin: 20px auto; padding: 20px; border: 2px solid #4CAF50; font-family: sans-serif;'>";
+            echo "<h1 style='color: #4CAF50;'>Application Successfully Submitted!</h1>";
+            echo "<p>Thank you for submitting your interest, <strong>" . htmlspecialchars($_POST['first-name'] ?? '') . "</strong>.</p>";
+            echo "<p style='font-size: 1.2em;'>Your Application Number is: <strong>" . $EOInumber . "</strong></p>";
+            echo "<p><a href='index.php'>Return back to Home Page</a></p>";
+            echo "</div>";
+        } else {
+            echo "<p>System error: Unable to submit your application." . mysqli_error($conn) . "</p>";
+        }
+
+}
+
+/* closes connection */
+mysqli_close($conn);
+
+?>
