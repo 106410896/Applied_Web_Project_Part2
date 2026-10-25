@@ -1,8 +1,5 @@
 <?php 
 
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 /* blocks direct url access and kicks back to apply.php if attempted */
 if ($_SERVER["REQUEST_METHOD"] !== "POST" || !isset($_POST['job-ref-num'])) {
     header("Location: apply.php");
