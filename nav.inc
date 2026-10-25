@@ -13,7 +13,7 @@
         
           $pages = [
             'About' => 'about.php',
-            'Jobs' => '_jobs.php',
+            'Jobs' => 'jobs.php',
             'Apply' => 'apply.php',
             'Travel Planner' => 'Travelplanner.php'
           ];
