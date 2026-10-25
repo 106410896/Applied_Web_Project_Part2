@@ -15,10 +15,12 @@
             'About' => 'about.php',
             'Jobs' => '_jobs.php',
             'Apply' => 'apply.php',
-            'Travel Planner' => 'Travelplanner.php'
+            'Travel Planner' => 'Travelplanner.php',
+            'HR Login' => 'login.php'
+
           ];
 
-          $current-page = basename($_SERVER['PHP_SELF']);
+          $current_page = basename($_SERVER['PHP_SELF']);
 
           foreach ($pages as $label => $filename) {
             $active_class = ($current-page == $filename) ? 'current-page' : '';
