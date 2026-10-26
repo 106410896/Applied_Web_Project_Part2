@@ -123,7 +123,7 @@ if (!in_array($sort, $allowed, true)) {
 }
 
 // Search applications in database
-$sql = "SELECT * FROM eoi
+$sql = "SELECT * FROM recruitment
         WHERE job_ref LIKE ?
         AND first_name LIKE ?
         AND last_name LIKE ?
