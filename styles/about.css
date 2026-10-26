@@ -1,145 +1,213 @@
 /*
   filename: about.css
   author: Isaac
-  description: Styles for the About page
+  description: About page colours, typography and decoration
 */
 
-/*Da font*/
+/* General appearance */
 body {
+  background-color: #f1f5f9;
+  color: #222222;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
                'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+
 main {
-  width: 80%;
-  max-width: 1000px;
-  margin: 30px auto;
-  line-height: 1.5;
+  line-height: 1.7;
 }
 
-main h1,
-main h2,
-#contributions dt,
-#member-quotes h3 {
-  color: #17365d;
-}
-
+/* Headings */
 main h1 {
-  text-align: center;
+  color: #17294a;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: bold;
+  letter-spacing: -2px;
+  line-height: 1.1;
 }
 
-main h2,
-#member-quotes h3 {
-  margin-top: 0;
+main h1::after {
+  background: linear-gradient(
+    to right,
+    #ed2929 0% 25%,
+    #ffcf26 25% 50%,
+    #28a745 50% 75%,
+    #0879e8 75% 100%
+  );
 }
 
-section {
-  margin-top: 35px;
+main h2 {
+  color: #17294a;
+  font-size: 1.6rem;
+  letter-spacing: -0.5px;
+}
+
+/* Open sections */
+main > section {
+  border: none;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 /* Group information */
+main #group-information {
+  border-left: 6px solid #7392d6;
+}
+
+#group-information > ul,
+#group-information ul ul {
+  list-style: none;
+}
 
 #group-information > ul > li {
-  margin-bottom: 12px;
   font-weight: bold;
 }
 
 #group-information ul ul li {
+  color: #49566b;
   font-weight: normal;
 }
 
-/* Group photo */
-figure {
-  width: 80%;
-  margin: 20px auto;
-  padding: 10px;
-  border: 1px solid #777777;
+/* Team photo */
+#group-photo figure {
+  border: 2px solid #222222;
+  border-radius: 0;
+  background-color: #ffffff;
+  box-shadow: 8px 8px 0 #7392d6;
+  transform: rotate(-1deg);
+}
+
+#group-photo figcaption {
+  color: #17294a;
+  font-size: 0.9rem;
+  font-style: normal;
   text-align: center;
-   border-radius: 8px;
-}
-
-#team-photo {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-figcaption {
-  margin-top: 10px;
-  color: #444444;
-  font-style: italic;
 }
 
 /* Contributions */
-
 #contributions dt {
-  margin-top: 15px;
+  color: #17294a;
+  font-size: 1.15rem;
   font-weight: bold;
 }
 
+#contributions dt::before {
+  border: 2px solid #222222;
+  background-color: #ffcf26;
+  transform: rotate(-10deg);
+}
+
+#contributions dt:nth-of-type(2)::before {
+  background-color: #ed2929;
+}
+
+#contributions dt:nth-of-type(3)::before {
+  background-color: #28a745;
+}
+
+#contributions dt:nth-of-type(4)::before {
+  background-color: #0879e8;
+}
+
+#contributions dt:nth-of-type(5)::before {
+  background-color: #9424b5;
+}
+
 #contributions dd {
-  margin: 4px 0 0 25px;
+  color: #49566b;
 }
 
 /* Member quotes */
-
 #member-quotes article {
-  margin-bottom: 20px;
-  padding: 10px;
-  background-color: #eeeeee;
-  border-radius: 8px;
+  border-left: 4px solid #7392d6;
+  border-radius: 0;
+  background: transparent;
+}
+
+#member-quotes h3 {
+  color: #17294a;
 }
 
 #member-quotes blockquote {
-  margin-left: 20px;
+  color: #49566b;
   font-style: italic;
 }
 
 /* Team table */
-#fun-facts {
-  overflow-x: auto;
+#fun-facts table {
+  border-radius: 0;
+  font-size: 0.95rem;
 }
 
-table {
-  width: 100%;
-  min-width: 650px;
-  border-collapse: collapse;
-  border-radius: 8px;
-}
-
-caption {
-  font-weight: bold;
-}
-
-th,
-td {
-  padding: 10px;
-  border: 1px solid #555555;
+#fun-facts caption {
+  color: #49566b;
+  font-size: 0.9rem;
   text-align: left;
 }
 
-thead {
-  color: #ffffff;
-  background-color: #17365d;
+#fun-facts th,
+#fun-facts td {
+  border: none;
+  border-bottom: 1px solid #c4cedd;
+  text-align: left;
 }
 
-tbody td:nth-child(2) {
-  color: #8b1a1a;
+#fun-facts thead {
+  color: #17294a;
+  background-color: #dce5fa;
+}
+
+#fun-facts thead th {
+  border-top: 3px solid #222222;
+  border-bottom: 2px solid #222222;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+#fun-facts tbody th {
+  color: #17294a;
   font-weight: bold;
 }
 
-tbody tr:nth-child(even) {
-  background-color: #eeeeee;
+#fun-facts tbody td:first-of-type {
+  color: #394b70;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  white-space: nowrap;
 }
 
-tbody tr:hover {
-  background-color: #d9e8f5;
+#fun-facts tbody tr:nth-child(even) {
+  background-color: #e8eef8;
+}
+
+#fun-facts tbody tr:hover {
+  background-color: #fff0b5;
 }
 
 /* Footer */
-
 footer {
-  margin-top: 40px;
-  padding: 15px;
+  border-top: 3px solid #222222;
+  color: #17294a;
+  background-color: #dce5fa;
   text-align: center;
-  border-top: 1px solid #777777;
+}
+
+/* Mobile appearance */
+@media screen and (max-width: 700px) {
+  main h1 {
+    letter-spacing: -1px;
+  }
+
+  main h2 {
+    font-size: 1.3rem;
+  }
+
+  #group-photo figure {
+    box-shadow: 5px 5px 0 #7392d6;
+  }
+
+  #group-photo figcaption {
+    font-size: 0.8rem;
+  }
 }

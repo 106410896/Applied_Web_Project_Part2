@@ -1,104 +1,194 @@
 /*
-
-filename: apply-layout.css
-
-author: Alagarsamy Chandrasekar Shashanth Kumar
-
-created: 7 September 2026 (07/09/2026)
-
-last modified: 11 September 2026 (11/09/2026)
-
-description: links to apply.html
-
+  filename: aboutuslayout.css
+  author: Isaac
+  description: About page layout
 */
 
-/* 
-
-_______________________________________________________________________________________________
-
-BASELINE LAYOUT CSS
------------------------------------------------------------------------------------------------
-Below are the basic initial CSS written in the midst of the development of the baseline HTML of
-the apply page, so as to keep the elements relatively clean, spaced out, and organised enough
-to be readable while coding the HTML form components.
-_______________________________________________________________________________________________
-
-*/
-
-/* equal spacing between fields */
-.personal-details, .address, .contact-details {
-    margin: 15px;
+body {
+  margin: 0;
 }
 
-/* equal spacing between fieldsets */
-.personal-details-main-fieldset, .address-main-fieldset, .contact-details-main-fieldset {
-    margin-bottom: 15px;
+main {
+  width: 88%;
+  max-width: 1050px;
+  margin: 45px auto;
 }
 
-/* spacing */
-.state-subgroup {
-    margin-left: 15px;
+main,
+main * {
+  box-sizing: border-box;
 }
 
-/* changes width of postcode field to match expected user input */
-#postcode {
-    display: inline-block;
-    width: 4em;
+/* Headings */
+main h1 {
+  margin: 0 0 45px;
 }
 
-/* stacks skills checkboxes horizontally with even spacing */
-.skills-subgroup {
-    display: inline-block;
-    margin: 5px;
+main h1::after {
+  content: "";
+  display: block;
+  width: 160px;
+  height: 7px;
+  margin-top: 20px;
 }
 
-/* stacks end-of-form buttons (i.e. submit, reset buttons) horizontally with even spacing */
-.end-of-form-buttons {
-    display: inline-block;
-    margin: 5px;
-    margin-top: 2em;
+main h2 {
+  margin: 0 0 20px;
 }
 
-/*
-_______________________________________________________________________________________________
-
-CORE LAYOUT CSS
------------------------------------------------------------------------------------------------
-From here on out, CSS written here below are all code written after the basic HTML development
-phase for the page had ended, the following contents now dictating core layout rules.
-
-_______________________________________________________________________________________________
-
-*/
-
-/* main page background colour */
-body { background-color: #f1f5f9;}
-
-form {
-    max-width: 800px;
-    width: 95%;
-    margin: 0 auto;
+/* Sections */
+main > section {
+  margin: 50px 0;
+  padding: 0;
 }
 
-.end-of-form-buttons
-{
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
+/* Group information */
+main #group-information {
+  padding-left: 20px;
 }
 
-/* spacing */
-.personal-details-main-fieldset {
-    margin-top: 25px;
+#group-information > ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px 75px;
+  margin: 0;
+  padding: 0;
 }
 
-/* spacing */
-.other-skills-subgroup {
-    margin-top: 25px;
+#group-information ul ul {
+  margin-top: 6px;
+  padding: 0;
 }
 
-/* repositioning of textarea label */
-.other-skills-subgroup label {
-    display: block;
-    margin-bottom: 8px;
+/* Team photo */
+#group-photo figure {
+  width: 94%;
+  margin: 25px auto;
+  padding: 10px 10px 0;
+  overflow: hidden;
+}
+
+/* Crop the top quarter of the original 4:3 photo */
+#team-photo {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin-top: -18.75%;
+  clip-path: inset(25% 0 0 0);
+}
+
+#group-photo figcaption {
+  margin: 0;
+  padding: 16px 8px;
+}
+
+/* Contributions */
+#contributions {
+  padding-top: 20px;
+}
+
+#contributions dl {
+  margin: 0;
+}
+
+#contributions dt {
+  margin-top: 28px;
+}
+
+#contributions dt:first-child {
+  margin-top: 0;
+}
+
+#contributions dt::before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 12px;
+}
+
+#contributions dd {
+  max-width: 780px;
+  margin: 7px 0 0 28px;
+}
+
+/* Member quotes */
+#member-quotes article {
+  margin: 25px 0;
+  padding: 0 0 0 20px;
+}
+
+#member-quotes h3 {
+  margin: 0 0 8px;
+}
+
+#member-quotes blockquote {
+  margin: 0;
+}
+
+/* Team table */
+#fun-facts {
+  padding-top: 20px;
+  overflow-x: auto;
+}
+
+#fun-facts table {
+  width: 100%;
+  min-width: 650px;
+  border-collapse: collapse;
+}
+
+#fun-facts caption {
+  padding-bottom: 16px;
+}
+
+#fun-facts th,
+#fun-facts td {
+  padding: 16px 14px;
+  vertical-align: top;
+}
+
+/* Footer */
+footer {
+  margin-top: 65px;
+  padding: 25px 20px;
+}
+
+/* Mobile layout */
+@media screen and (max-width: 700px) {
+  main {
+    width: 90%;
+    margin: 30px auto;
+  }
+
+  main h1 {
+    margin-bottom: 35px;
+  }
+
+  main > section {
+    margin: 35px 0;
+  }
+
+  #group-information > ul {
+    gap: 20px 35px;
+  }
+
+  #group-photo figure {
+    width: 96%;
+    padding: 6px 6px 0;
+  }
+
+  #group-photo figcaption {
+    padding: 12px 5px;
+  }
+
+  #contributions dd {
+    margin-left: 0;
+  }
+
+  #fun-facts th,
+  #fun-facts td {
+    padding: 12px;
+  }
 }
