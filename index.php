@@ -27,11 +27,11 @@
           <!-- Adding Logo and slogan -->
         <div class="brand">
 
-           <img src="images/logo-only.png" alt="CyberShield Logo">
+           <img src="images/FlyAnywhere.png" alt="FlyAnywhere Logo" style="width:50px; height:50px;">
 
              <div>
 
-               <h1>Fly Anywhere</h1>
+               <h1>FlyAnywhere</h1>
                <p><em>Connecting People, Places and Technology.</em></p>
 
              </div>
