@@ -34,7 +34,7 @@ header .navbar {
     align-items: center;
     width: 100%;
     padding: 20px 3%;
-    gap: 25px;
+    /* gap: 25px; */
 }
 
 /* Logo */
