@@ -8,7 +8,7 @@
     $page_description = "Applied Web Project - About page (Fantastic5)";
 
     $page_stylesheets = [
-    "styles/aboutuslayout.css",
+    "styles/apply-layout.css",
     "styles/about.css"
 ];
 
