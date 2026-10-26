@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION["hr_logged_in"] = true;
         $_SESSION["hr_user_id"] = $user_id;
         mysqli_stmt_close($stmt);
-        header("Location: manage.php");
+        header("Location:manage.php");
         exit();
     }
 
