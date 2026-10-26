@@ -9,13 +9,7 @@ if (empty($_SESSION['hr_logged_in'])) {
 }
 
 // Connect to MySQL database
-$conn = mysqli_connect("localhost", "root", "", "fantastic5");
-
-if (!$conn) {
-    die("Database connection failed");
-}
-
-mysqli_set_charset($conn, "utf8mb4");
+ require_once('settings.php');
 
 // Function to safely display text
 function clean($value) {
