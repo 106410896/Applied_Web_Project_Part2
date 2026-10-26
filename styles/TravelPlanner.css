@@ -34,7 +34,7 @@ header .navbar {
     align-items: center;
     width: 100%;
     padding: 20px 3%;
-    /* gap: 25px; */
+    gap: 25px;
 }
 
 /* Logo */
@@ -57,10 +57,8 @@ header .nav-links {
     gap: 8px;
     list-style: none;
     margin: 0;
-    padding: 12px 25px;
     background-color: #405984;
     border-radius: 60px;
-    min-height: 96px;
 }
 
 /* Navigation items */
@@ -76,7 +74,6 @@ header .nav-links a {
     display: block;
     color: white;
     text-decoration: none;
-    font-size: 24px;
     font-weight: bold;
     text-align: center;
     padding: 12px 18px;
