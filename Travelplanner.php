@@ -1,6 +1,6 @@
 
 <?php
-// Created by Kshitij Shetty 
+// Created by Kshitij Shetty
 require_once 'settings.php'; //connect to settings php and database 
 
 require_once __DIR__ . '/Travelplanner_functions.inc';  //load the funcitons used by Travel planner
@@ -50,9 +50,9 @@ function escapeHTML($value)
 
 <body>
 
-<?
+<?php
     //loads nav file.
-    php require_once 'nav.inc';  
+    require_once 'nav.inc';
 ?>
 
 <!-- Main content of the Page -->
