@@ -42,7 +42,7 @@
 <section class="company-intro">
     <h2>Welcome to FlyAnywhere</h2>
     <p class="intro-lead">
-       Tourism and Travel Technology Platform is dedicated to improving the travel experience
+       FlyAnywhere is dedicated to improving the travel experience
        through innovative digital solutions. We specialise in developing user-friendly
        travel websites, online booking systems, and tourism management platforms.
        Our goal is to make travelling easier, more accessible, and more convenient
@@ -75,7 +75,7 @@
 <section class="why-join-us">
     <h2>Why Build Your Career with Us?</h2>
     <p class="bold-text">
-       At Tourism and Travel Technology Platform, <strong>we believe that our employees
+       At FlyAnywere, <strong>we believe that our employees
        are the key to our success.</strong> We provide opportunities to develop technical
        skills, work on innovative tourism projects, and contribute to the growing
        travel technology industry. Whether you are a web developer, software engineer,
@@ -146,7 +146,8 @@
                fraudulent travel websites, and misleading accommodation advertisements.
                <strong>Understanding these risks helps travellers make safer decisions.
                Always use trusted booking platforms and verify travel information
-               before making payments.</strong>
+               before making payments.</strong> At FlyAnywhere, we are committed to
+                helping travellers make informed and safer travel decisions by providing reliable travel information and trusted resources.
            </p>
     </p>
 
