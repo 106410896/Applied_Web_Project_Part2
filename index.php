@@ -40,7 +40,7 @@
 
            <!-- Company intro- Used copilot to help me write the company intro. Didn't use it for writing the code in this section. -->
 <section class="company-intro">
-    <h2>Welcome to Tourism and Travel Technology Platform</h2>
+    <h2>Welcome to FlyAnywhere</h2>
     <p class="intro-lead">
        Tourism and Travel Technology Platform is dedicated to improving the travel experience
        through innovative digital solutions. We specialise in developing user-friendly
