@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $stmt = mysqli_prepare(
                 $conn,
-                "UPDATE eoi SET status = ? WHERE EOInumber = ?"
+                "UPDATE recruitment SET status = ? WHERE EOInumber = ?"
             );
 
             mysqli_stmt_bind_param($stmt, "si", $status, $number);
@@ -83,7 +83,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
             $stmt = mysqli_prepare(
                 $conn,
-                "DELETE FROM eoi WHERE job_ref = ?"
+                "DELETE FROM recruitment WHERE job_ref = ?"
             );
 
             mysqli_stmt_bind_param($stmt, "s", $reference);
