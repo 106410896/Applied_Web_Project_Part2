@@ -9,7 +9,7 @@ if (empty($_SESSION['hr_logged_in'])) {
 }
 
 // Connect to MySQL database
-$conn = mysqli_connect("localhost", "root", "", "hr management");
+$conn = mysqli_connect("localhost", "root", "", "fantastic5");
 
 if (!$conn) {
     die("Database connection failed");
