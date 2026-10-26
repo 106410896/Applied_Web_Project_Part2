@@ -5,7 +5,7 @@
 
 /* variables declared for dynamic page author, title setting and stylesheet loading */
     $page_author = "Manas and Kshitij";
-    $page_title = "Fly anywhere";
+    $page_title = "Fly Anywhere";
     $page_description = "Tourism and Travel Technology Platform Careers Portal";
 
     $page_stylesheets = [
@@ -31,7 +31,7 @@
 
              <div>
 
-               <h1>Fly anywhere</h1>
+               <h1>Fly Anywhere</h1>
                <p><em>Connecting People, Places and Technology.</em></p>
 
              </div>
