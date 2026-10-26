@@ -1,5 +1,4 @@
-/*----
-       Created by Kshitij Shetty ----*/
+<!-- Created by Kshitij Shetty -->
 
 
 <?php 
