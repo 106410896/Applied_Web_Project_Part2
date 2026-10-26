@@ -1,4 +1,4 @@
-<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
+<!-- use http://localhost/project2/index.php to debug -->
 
 <?php
 
