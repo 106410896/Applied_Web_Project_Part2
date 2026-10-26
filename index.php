@@ -22,7 +22,6 @@
     <!-- include file 'nav.inc' used for navigation bar to avoid repetition -->
     <?php include 'nav.inc'; ?>
 
-<!-- edited by Shashanth: Hey Manas, hey Kshitij. I just fixed the code here real quick to actually get the menu bar I designed into it, so that the webpage is more consistent. Any queries about this, just reach out to me. Thanks. -->
     <main>
           <!-- Adding Logo and slogan -->
         <div class="brand">
