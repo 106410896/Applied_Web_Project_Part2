@@ -1,5 +1,23 @@
+<!-- use http://localhost/Applied_Web_Project_Part2/index.php to debug -->
 
 <?php
+
+/* variables declared for dynamic page author, title setting and stylesheet loading */
+    $page_author = "Kshitij Shetty";
+    $page_title = "Travel Planner";
+    $page_description = "Applied Web Project - Travel Planner page (Fantastic5)";
+
+    $page_stylesheets = [
+        "styles/TravelPlanner.css"
+    ];
+
+/* include file 'header.inc' used for header to avoid repetition */
+    include 'header.inc';
+
+?>
+
+<?php
+
 // Created by Kshitij Shetty
 require_once 'settings.php'; //connect to settings php and database 
 
@@ -36,23 +54,11 @@ function escapeHTML($value)
 }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>Personalised Travel Planner</title>
-
-    <link rel="stylesheet" href="styles/TravelPlanner.css">
-</head>
-
 <body>
 
 <?php
-    //loads nav file.
-    require_once 'nav.inc';
+    /* include file 'nav.inc' used for navbar to avoid repetition */
+    include 'nav.inc';
 ?>
 
 <!-- Main content of the Page -->

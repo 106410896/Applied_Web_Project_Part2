@@ -27,18 +27,6 @@ header {
     border-radius: 0 0 24px 24px;
 }
 
-/* Logo */
-header .logo {
-    flex-shrink: 0;
-}
-
-header .logo img {
-    display: block;
-    width: 330px;
-    max-width: 100%;
-    height: auto;
-}
-
 /* Main content */
 .Travel-Mainlines {
     width: 90%;
