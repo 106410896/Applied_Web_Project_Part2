@@ -2,7 +2,7 @@
 <?php
 session_start();
 
-$conn = mysqli_connect("localhost", "root", "", "hr management");
+$conn = mysqli_connect("localhost", "root", "", "fantastic5");
 
 if (!$conn) {
     die("Database connection failed");
